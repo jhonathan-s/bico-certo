@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="icon" href="../imagens/icones-aba/icone16.ico" sizes="16x16">
+    <link rel="icon" href="../imagens/icones-aba/icone24.ico" sizes="24x24">
+    <link rel="icon" href="../imagens/icones-aba/icone32.ico" sizes="32x32">
+    <link rel="icon" href="../imagens/icones-aba/icone48.ico" sizes="48x48">
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="container-esquerdo">
+            <img src="../imagens/imagem-login.jpg" class="imagem">
+        </div>
+        <div class="container-direito" id="container-direito">
+            <img src="../imagens/logomarca.png" class="logomarca" id="logomarca">
+            <img src="../imagens/logomarca-dark-mode.png" class="logomarca-dark-mode" id="logomarca-dark-mode">
+            <div id="form">
+                <div class="campo">
+                    <input id="email" type="email" class="email required" placeholder="E-mail" oninput="emailValidate()">
+                    <span class="span-required">Digite um e-mail válido.</span>
+                    <span class="span-required">Digite um e-mail.</span>
+                </div>
+                <div class="campo">
+                    <input id="password" type="password" class="senha required" placeholder="Senha" oninput="senhaValidate()">
+                    <span class="span-required">Digite uma senha válida.</span>
+                    <span class="span-required">E-mail ou senha estão incorretos.</span>
+                </div>
+                <div class="lembrar-esqueci">
+                    <div class="checkbox">
+                        <input type="checkbox" id="lembrar-de-mim">
+                        <label for="lembrar-de-mim">Lembrar de mim</label>
+                    </div>
+                    <div class="esqueci">
+                        <a class="esqueci-minha-senha" href="./esqueci-minha-senha.html">Esqueci minha senha</a>
+                    </div>
+                </div>
+                <div class="botoes">
+                    <button class="botao-de-entrar">
+                        Entrar
+                    </button>
+                    <a href="./cadastro.html" class="new-user">
+                        <span>Me Cadastrar</span>
+                    </a>
+                    <a href="../index.html" class="homepage">
+                        <span>Voltar à Página Inicial</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="acessibility-buttons">
+            <div class="acessibility-panel">
+                <img onclick="LightMode()" id="btnLightMode" src="../imagens/white-and-dark-mode/sun-solid.svg" class="botao-white-mode">
+                <img onclick="DarkMode()" id="btnDarkMode" src="../imagens/white-and-dark-mode/moon-solid.svg" class="botao-dark-mode">
+                <img id="aumentarZoom" onclick="aumentarZoom()" src="../imagens/acessibilidade/circle-plus-solid.svg" class="acessibilidade-mais">
+                <img id="abaixarZoom" onclick="abaixarZoom()" src="../imagens/acessibilidade/circle-minus-solid.svg" class="acessibilidade-menos">
+                <img id="aumentarZoomDM" onclick="aumentarZoom()" src="../imagens/white-and-dark-mode/circle-plus-solid.svg" class="acessibilidade-mais lm-dm">
+            <img id="abaixarZoomDM" onclick="abaixarZoom()" src="../imagens/white-and-dark-mode/circle-minus-solid.svg" class="acessibilidade-menos lm-dm">
+            </div>
+        </div>
+    </div>
+    <script src="../script/login/validacao-login.js"></script>
+    <script src="../script/login/acessibilidade.js"></script>
+    <script src="../script/login/light-and-dark-mode.js"></script>
+</body>
+</html>

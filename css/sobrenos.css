@@ -1,0 +1,225 @@
+/* Importação da Fonte "Inter" da API do Google */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* Fonte "Inter" Como Padrão Para Todo o Site */
+* {
+    font-family: "Inter", Arial;
+    transition: all 0.15s;
+}
+
+/* Cores do Light e Dark Mode */
+:root {
+    --primary-color: rgb(23,50,118);
+    --secondary-color: White;
+}
+
+.dark-mode {
+    --primary-color: white;
+    --secondary-color: #121212;
+}
+
+/* Responsividade de Largura e Altura*/
+@media (max-width: 1000px) {
+
+    .container-esquerdo {
+        display: none;
+    }
+
+}
+
+@media (max-height: 700px) {
+
+    img.logomarca {
+        width: 50vh;
+    }
+
+    img.logomarca-dark-mode {
+        width: 50vh;
+    }
+
+}
+
+@media (max-width: 400px) {
+
+    img.logomarca,
+    img#logomarca-dark-mode {
+        width: 250px;
+    }
+
+    a.botao-de-voltar-a-pagina-inicial {
+        width: 230px;
+    }
+
+}
+
+/* Margens e Padding's Zerados do Body */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--secondary-color);
+}
+
+/* Scrollbar Personalizada*/
+body::-webkit-scrollbar {
+    width: 2px;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: rgb(160, 160, 160);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+}
+
+/* Estilização do Negrito*/
+b {
+    color: var(--primary-color)
+}
+
+/* Estilização dos Parágrafos e Listas*/
+p, li {
+    text-align: justify;
+    margin: 10px 50px;
+}
+
+/* Estilização dos Marcadores das Listas*/
+li::marker {
+    color: var(--primary-color);
+    font-weight: bold; 
+}
+
+/* Estilização de Todos os H1's da Página*/
+h1 {
+    color: var(--primary-color);
+    text-align: center;
+}
+
+/* Container - Engloba o Lado Esquerdo e Direito*/
+.container {
+    display: flex;
+}
+
+/* Container Esquerdo */
+.container-esquerdo {
+    flex: 1;
+}
+
+.imagem {
+    width: 50vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    object-position: top;
+}
+
+/* Container Direito */
+.container-direito {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    flex: 1;
+    justify-items: center;
+    background-color: var(--secondary-color);
+}
+
+/* Imagem da Logomarca no Container Direito */
+.logomarca,
+.logomarca-dark-mode {
+    width: 400px;
+    max-width: 100%;
+    margin-bottom: 19px;
+}
+
+.logomarca-dark-mode {
+    display: none;
+}
+
+/* Botão de Voltar à Pagina Inicial */
+.botao-de-voltar-a-pagina-inicial {
+    display: block;
+    text-decoration: none;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    transition: all 0.15s;
+    box-sizing: border-box;
+    width: 350px;
+    height: 40px;
+    text-align: center;
+    font-size: 13.33px;
+    background-image: url(../imagens/icone-botoes/backward-solid.svg);
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: 10px;
+}
+
+.botao-de-voltar-a-pagina-inicial:hover {
+    opacity: 0.8; /* Define a opacidade do botão de voltar à página inicial no ato de passar o cursor do mouse sobre ele. */
+}
+
+.botao-de-voltar-a-pagina-inicial:active {
+    opacity: 0.6; /* Define a opacidade do botão de voltar à página inicial no ato de clicar sobre ele. */
+}
+
+a > span {
+    position: relative;
+    top: 12px;
+}
+
+/* "Botões" de Acessibilidade */
+.acessibility-buttons {
+    margin-right: 2px;
+}
+
+.acessibility-buttons > div {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 50%;
+    bottom: 50%;
+    gap: 2px;
+    padding: 3px;
+    border-radius: 5px;
+    background-color: rgba(23, 50, 118, 0.11);
+}
+/* "Botões" de Acessibilidade */
+.acessibilidade-mais,
+.acessibilidade-menos {
+    transition: all 0.50s;
+    width: 20px;
+}
+
+.acessibilidade-mais:hover,
+.acessibilidade-menos:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+/* O Código abaixo faz os botões "brancos" que aparecem no Dark Mode não carregarem na página de imediato */
+.lm-dm {
+    display: none;
+}
+
+/* Botões de White e Dark Mode */
+.botao-white-mode,
+.botao-dark-mode {
+    transition: all 0.50s;
+    align-self: center;
+}
+
+.botao-white-mode {
+    width: 20px;
+    display: none;
+}
+
+.botao-dark-mode {
+    width: 16px;
+}
+
+.botao-white-mode:hover,
+.botao-dark-mode:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}

@@ -1,0 +1,223 @@
+/* Importação da Fonte "Inter" da API do Google */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* Fonte "Inter" Como Padrão Para Todo o Site */
+* {
+    font-family: "Inter", Arial;
+    transition: all 0.15s;
+}
+
+/* Cores do Light e Dark Mode */
+:root {
+    --primary-color: rgb(23,50,118);
+    --secondary-color: White;
+}
+
+.dark-mode {
+    --primary-color: white;
+    --secondary-color: #121212;
+}
+
+/* Responsividade de Largura */
+@media (max-width: 700px) {
+
+    .container-esquerdo {
+        display: none;
+    }
+
+}
+
+@media (max-height: 700px) {
+
+    img.logomarca {
+        width: 50vh;
+    }
+
+    img.logomarca-dark-mode {
+        width: 50vh;
+    }
+
+}
+
+/* Margens e Padding's Zerados do Body */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Scrollbar Personalizada*/
+body::-webkit-scrollbar {
+    width: 2px;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: rgb(160, 160, 160);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+}
+
+/* Mensagem de Erro */
+.span-required {
+    display: none;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+/* Container - Engloba o Lado Esquerdo e Direito*/
+.container {
+    display: flex;
+}
+
+/* Container Esquerdo */
+.container-esquerdo {
+    flex: 1;
+}
+
+.imagem {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 90%;
+    position: fixed;
+}
+
+/* Container Direito */
+.container-direito {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: var(--secondary-color);
+    height: 100vh;
+    min-height: fit-content;
+}
+
+/* Imagem da Logomarca no Container Direito */
+.logomarca,
+.logomarca-dark-mode {
+    width: 300px;
+    max-width: 100%;
+    margin-bottom: 0;
+}
+
+.logomarca-dark-mode {
+    display: none;
+}
+
+/* Ícones Dentro dos Input's */
+.email {
+    background: url(../imagens/icones-pagina-registro/icone-email.svg) no-repeat left;
+    border: none;
+    border-bottom: 2px solid var(--primary-color);
+    text-align: center;
+    width: 350px;
+    background-position: 10px;
+    background-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+    height: 40px;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    box-shadow: rgba(105, 105, 105, 0.25) 0px 1px 1px, rgba(151, 151, 151, 0.13) 0px 0px 1px 1px;
+    transition: all 0.15s;
+}
+
+.botao-enviar-link {
+    font-size: 13.333px;
+    display: block;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    margin-top: 10px;
+    transition: all 0.15s;
+    box-sizing: border-box;
+    width: 350px;
+    height: 40px;
+    background-image: url(../imagens/icone-botoes/paper-plane-solid.svg);
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: 10px;
+    margin-bottom: 20px;
+}
+
+.botao-enviar-link:hover {
+    opacity: 0.8;
+}
+
+.botao-enviar-link:active {
+    opacity: 0.6;
+}
+
+.lembrou-sua-senha {
+    font-size: 13px;
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: all 0.15s;
+}
+
+.lembrou-sua-senha:hover {
+    text-decoration: underline;
+}
+/* "Botões" de Acessibilidade */
+.acessibility-buttons {
+    margin-right: 2px;
+}
+
+.acessibility-buttons > div {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 50%;
+    bottom: 50%;
+    gap: 2px;
+    padding: 3px;
+    border-radius: 5px;
+    background-color: rgba(23, 50, 118, 0.11);
+}
+/* "Botões" de Acessibilidade */
+.acessibilidade-mais,
+.acessibilidade-menos {
+    transition: all 0.50s;
+    width: 20px;
+}
+
+.acessibilidade-mais:hover,
+.acessibilidade-menos:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+/* O Código abaixo faz os botões "brancos" que aparecem no Dark Mode não carregarem na página de imediato */
+.lm-dm {
+    display: none;
+}
+
+/* Botões de White e Dark Mode */
+.botao-white-mode,
+.botao-dark-mode {
+    transition: all 0.50s;
+    align-self: center;
+}
+
+.botao-white-mode {
+    width: 20px;
+    display: none;
+}
+
+.botao-dark-mode {
+    width: 16px;
+}
+
+.botao-white-mode:hover,
+.botao-dark-mode:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}

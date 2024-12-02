@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="icon" href="../imagens/icones-aba/icone16.ico" sizes="16x16">
+    <link rel="icon" href="../imagens/icones-aba/icone24.ico" sizes="24x24">
+    <link rel="icon" href="../imagens/icones-aba/icone32.ico" sizes="32x32">
+    <link rel="icon" href="../imagens/icones-aba/icone48.ico" sizes="48x48">
+    <link rel="stylesheet" href="../css/cadastro.css">
+</head>
+<body>
+    <div class="container">
+        <div class="container-esquerdo">
+            <img src="../imagens/imagem-cadastro.jpg" class="imagem">
+        </div>
+        <div class="container-direito" id="container-direito">
+            <img src="../imagens/logomarca.png" class="logomarca" id="logomarca">
+            <img src="../imagens/logomarca-dark-mode.png" class="logomarca-dark-mode" id="logomarca-dark-mode">
+            <div id="form">
+                <h1>Informações Pessoais</h1>
+                <div class="coluna1">
+                    <div class="campo">
+                        <input type="text" class="nome required" placeholder="Nome Completo" id="nome" oninput="nameValidate()">
+                        <span class="span-required">Nome deve ter no mínimo 15 caracteres.</span>
+                    </div>
+                    <div class="campo">
+                        <input type="email" class="email required" placeholder="E-mail" name="e-mail" maxlength="30" id="email" oninput="emailValidate()">
+                        <span class="span-required">Digite um e-mail válido.</span>
+                    </div>
+                    <div class="campo">
+                        <input type="date" class="data-de-nascimento required" name="data-de-nascimento" id="data-de-nascimento" value="2024-01-01" oninput="dateValidate(2)">
+                        <span class="span-required">Você precisa ter mais de 18 anos.</span>
+                    </div>
+                    <div class="campo">
+                        <select name="sexo" id="sexo" class="sexo required" onchange="sexoValidate()">
+                            <option value="" disabled selected>Selecione um sexo...</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="feminino">Feminino</option>
+                        </select>
+                        <span class="span-required">Selecione um sexo.</span>
+                    </div>
+                    <div class="campo">
+                        <input type="text" class="cpf required" placeholder="CPF" maxlength="14" id="cpf" oninput="cpfValidate(4)">
+                        <span class="span-required">Digite um CPF válido.</span>
+                    </div>
+                    <div class="campo">
+                        <input type="tel" class="celular required" placeholder="Número do Celular" maxlength="19" id="celular" oninput="celValidate()">
+                        <span class="span-required">Digite um número de celular válido.</span>
+                    </div>
+                </div>
+                <h1>Localização</h1>
+                <div class="coluna2">
+                    <div class="campo">
+                        <input type="text" class="cep required" placeholder="CEP" maxlength="9" id="cep" onblur="buscaCep(this.value)" oninput="cepValidate()">
+                        <span class="span-required">Digite um CEP válido.</span>
+                    </div>
+                    <div class="campo">
+                        <input type="text" class="rua required" placeholder="Rua" maxlength="20" id="rua" oninput="ruaValidate()">
+                        <span class="span-required">Digite uma rua.</span>
+                    </div>
+                    <div class="campo">
+                        <input type="text" class="estado required" placeholder="Estado" maxlength="30" id="estado" oninput="estadoValidate()">
+                        <span class="span-required">Digite um estado.</span>
+                    </div>
+                    <div class="campo">
+                        <input type="text" class="cidade required" placeholder="Cidade" maxlength="30" id="cidade" oninput="cidadeValidate()">
+                        <span class="span-required">Digite uma cidade.</span>
+                    </div>
+                    <div class="campo">
+                        <input type="number" class="numero required" placeholder="Número da Casa" id="numero" oninput="numeroValidate()">
+                        <span class="span-required">Digite um número válido.</span>
+                    </div>
+                    <div class="campo">
+                        <input type="text" class="bairro required" placeholder="Bairro" maxlength="30" id="bairro" oninput="bairroValidate()">
+                        <span class="span-required">Digite um bairro.</span>
+                    </div>
+                    <div class="campo">
+                        <input type="text" class="ponto-de-referencia" placeholder="Ponto de Referência" maxlength="30" id="ponto-de-referencia">
+                    </div>
+                </div>
+                <h1>Informações da Conta</h1>
+                <div class="coluna3">
+                    <div class="campo">
+                        <input type="text" class="login required" placeholder="Login" maxlength="6" id="login" oninput="loginValidate()">
+                        <span class="span-required">Login deve ter exatamente 6 caracteres.</span>
+                    </div>
+                    <div class="campo">
+                        <input type="password" class="senha required" placeholder="Senha" maxlength="8" id="senha" oninput="senhaValidate()">
+                        <span class="span-required">Senha deve ter exatamente 8 caracteres.</span>
+                    </div>
+                    <div class="campo">
+                        <input type="password" class="confirmar-senha required" placeholder="Confirmar Senha" maxlength="8" id="confirmar-senha" oninput="confirmarsenhaValidate()">
+                        <span class="span-required">As senhas precisam ser iguais.</span>
+                    </div>
+                </div>
+                <h1>Contratante ou Prestador?</h1>
+                <div class="coluna4">
+                    <div>
+                        <div class="contratante">
+                            <input type="radio" name="tipo-usuario" id="contratante" class="required" onclick="userRoleValidate()">
+                            <label for="contratante" class="sou-contratante">
+                                Sou contratante e viso contratar serviços dentro da plataforma.
+                            </label>
+                        </div>
+                        <div class="prestador">
+                            <input type="radio" name="tipo-usuario" id="prestador" class="required" onclick="userRoleValidate()">
+                            <label for="prestador" class="sou-prestador">
+                                Sou prestador e viso oferecer serviços dentro da plataforma.
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <span class="span-required">Selecione que tipo de usuário você será dentro da plataforma.</span>
+                <div class="coluna5" id="coluna5">
+                    <div class="services">
+                        <h3>Que tipo de serviço você deseja oferecer na plataforma?</h3>
+                        <select name="" id="prestador-opcoes" class="required">
+                            <option value="" disabled selected>Por favor, selecione uma espécie de serviço...</option>
+                            <optgroup label="Beleza e Bem-estar">
+                                <option value="teste">Manicure e pedicure</option>
+                                <option value="teste">Cabeleireiro(a) ou barbeiro(a)</option>
+                                <option value="teste">Design de sobrancelhas</option>
+                                <option value="teste">Maquiador(a)</option>
+                                <option value="teste">Massoterapeuta(a)</option>
+                                <option value="teste">Esteticista (limpeza de pele, depilação, etc.)</option>
+                                <option value="teste">Personal trainer</option>
+                                <option value="teste">Instrutor(a) de yoga ou pilates</option>
+                            </optgroup>
+                            <optgroup label="Cuidados Domésticos">
+                                <option value="teste">Jardinagem</option>
+                                <option value="teste">Paisagismo</option>
+                                <option value="teste">Limpeza residencial ou comercial</option>
+                                <option value="teste">Organização de ambientes</option>
+                                <option value="teste">Serviços de mudança (empacotamento e transporte leve)</option>
+                                <option value="teste">Reparos domésticos (marido/mulher de aluguel)</option>
+                            </optgroup>
+                            <optgroup label="Culinária e Gastronomia">
+                                <option value="teste">Personal chef</option>
+                                <option value="teste">Confeiteiro(a)</option>
+                                <option value="teste">Produção de marmitas e comidas congeladas</option>
+                                <option value="teste">Food truck ou barraquinha de comida em eventos</option>
+                                <option value="teste">Aulas de culinária</option>
+                            </optgroup>
+                            <optgroup label="Educação e Treinamento">
+                                <option value="teste">Aulas particulares (reforço escolar, línguas, música, etc.)</option>
+                                <option value="teste">Consultoria profissional (marketing, finanças, tecnologia, etc.)</option>
+                                <option value="teste">Coach de carreira ou vida</option>
+                                <option value="teste">Workshops ou treinamentos em áreas específicas</option>
+                            </optgroup>
+                            <optgroup label="Cuidados com Animais">
+                                <option value="teste">Passeador(a) de cães</option>
+                                <option value="teste">Pet sitter (babá de animais)</option>
+                                <option value="teste">Banho e tosa de animais</option>
+                                <option value="teste">Adestramento de cães</option>
+                            </optgroup>
+                            <optgroup label="Arte e Criação">
+                                <option value="teste">Fotógrafo(a) (casamentos, eventos, retratos)</option>
+                                <option value="teste">Artista plástico ou artesão (pintura, escultura, bordado, etc.)</option>
+                                <option value="teste">Design gráfico</option>
+                                <option value="teste">Escritor(a) freelancer (artigos, blogs, roteiros, etc.)</option>
+                                <option value="teste">Edição de fotos ou vídeos</option>
+                                <option value="teste">Músico(a) (shows, eventos, gravações)</option>
+                            </optgroup>
+                            <optgroup label="Transporte e Logística">
+                                <option value="teste">Motorista de aplicativo ou transporte privado</option>
+                                <option value="teste">Entregador(a) autônomo</option>
+                                <option value="teste">Motoboy</option>
+                                <option value="teste">Transporte escolar</option>
+                            </optgroup>
+                            <optgroup label="Tecnologia e Serviços Digitais">
+                                <option value="teste">Desenvolvimento de sites</option>
+                                <option value="teste">Suporte técnico de informática</option>
+                                <option value="teste">Consultoria em redes sociais e marketing digital</option>
+                                <option value="teste">Produção de conteúdo (YouTube, podcasts, blogs)</option>
+                                <option value="teste">Edição de vídeos e podcasts</option>
+                            </optgroup>
+                            <optgroup label="Eventos e Festas">
+                                <option value="teste">Decoração de festas</option>
+                                <option value="teste">Organização de eventos</option>
+                                <option value="teste">Buffet para festas</option>
+                                <option value="teste">Locação de materiais para eventos</option>
+                                <option value="teste">Recreação infantil</option>
+                            </optgroup>
+                            <optgroup label="Outros Serviços">
+                                <option value="teste">Assistência pessoal ou virtual</option>
+                                <option value="teste">Costura e ajustes de roupas</option>
+                                <option value="teste">Serviços de tradução ou intérprete</option>
+                                <option value="teste">Consultoria financeira ou contábil</option>
+                                <option value="teste">Reparos em eletrônicos</option>
+                                <option value="teste">Outros</option>
+                            </optgroup>
+                        </select>
+                        <span class="span-required">Selecione que tipo de serviço você oferecerá na plataforma.</span>
+                    </div>
+                </div>
+                <button class="botao-de-cadastrar-usuario">Cadastrar Usuário</button>
+                <a href="../index.html" class="botao-de-voltar-a-pagina-inicial">
+                    <span>Voltar à Página Inicial</span>
+                </a>
+            </div>
+        </div>
+        <div class="acessibility-buttons">
+            <div class="acessibility-panel">
+                <img onclick="LightMode()" id="btnLightMode" src="../imagens/white-and-dark-mode/sun-solid.svg" class="botao-white-mode">
+                <img onclick="DarkMode()" id="btnDarkMode" src="../imagens/white-and-dark-mode/moon-solid.svg" class="botao-dark-mode">
+                <img id="aumentarZoom" onclick="aumentarZoom()" src="../imagens/acessibilidade/circle-plus-solid.svg" class="acessibilidade-mais">
+                <img id="abaixarZoom" onclick="abaixarZoom()" src="../imagens/acessibilidade/circle-minus-solid.svg" class="acessibilidade-menos">
+                <img id="aumentarZoomDM" onclick="aumentarZoom()" src="../imagens/white-and-dark-mode/circle-plus-solid.svg" class="acessibilidade-mais lm-dm">
+                <img id="abaixarZoomDM" onclick="abaixarZoom()" src="../imagens/white-and-dark-mode/circle-minus-solid.svg" class="acessibilidade-menos lm-dm">
+            </div>
+        </div>
+    </div>
+    <script src="../script/registro/formatacao-cep.js"></script>
+    <script src="../script/registro/formatacao-cpf.js"></script>
+    <script src="../script/registro/formatacao-celular.js"></script>
+    <script src="../script/registro/formatacao-telefone-fixo.js"></script>
+    <script src="../script/registro/validacao-campos-cadastro.js"></script>
+    <script src="../script/registro/acessibilidade.js"></script>
+    <script src="../script/registro/light-and-dark-mode.js"></script>
+    <script src="../script/registro/contratante-prestador.js"></script>
+</body>
+</html>

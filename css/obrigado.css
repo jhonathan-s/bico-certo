@@ -1,0 +1,209 @@
+/* Importação da Fonte "Inter" da API do Google */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* Fonte "Inter" Como Padrão Para Todo o Site */
+* {
+    font-family: "Inter", Arial;
+    transition: all 0.15s;
+}
+
+/* Cores do Light e Dark Mode */
+:root {
+    --primary-color: rgb(23,50,118);
+    --secondary-color: White;
+}
+
+.dark-mode {
+    --primary-color: white;
+    --secondary-color: #121212;
+}
+
+/* Responsividade de Largura e Altura */
+@media (max-width: 1000px) {
+
+    .container {
+        flex-direction: column;
+    }
+
+    div.container-esquerdo {
+        flex-basis: 15vh;
+    }
+
+    div.container-esquerdo > .imagem {
+        object-position: 0 35%;
+        width: 100%;
+        height: 15%;
+    }
+
+    #container-direito {
+        flex-basis: 85vh;
+    }
+}
+
+@media (max-height: 700px) {
+
+    img.logomarca {
+        width: 50vh;
+    }
+
+    img.logomarca-dark-mode {
+        width: 50vh;
+    }
+
+}
+
+/* Margens e Padding's Zerados do Body */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Scrollbar Personalizada*/
+body::-webkit-scrollbar {
+    width: 2px;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: rgb(160, 160, 160);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color)
+}
+
+/* Container - Engloba o Lado Esquerdo e Direito*/
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Container Esquerdo */
+.container-esquerdo {
+    flex: 1;
+}
+
+.imagem {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    transform: scaleX(-1);
+    position: fixed;
+}
+
+/* Container Direito */
+.container-direito {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary-color);
+}
+
+/* Imagem da Logomarca no Container Direito */
+.logomarca,
+.logomarca-dark-mode {
+    width: 400px;
+    max-width: 100%;
+    margin-bottom: 19px;
+}
+
+.logomarca-dark-mode {
+    display: none;
+}
+
+/* Subtítulo de "Obrigado" */
+.muito-obrigado {
+    color: var(--primary-color);
+    margin-bottom: 0;
+}
+
+/* Botão de Voltar à Pagina Inicial */
+.botao-de-voltar-a-pagina-inicial {
+    font-size: 13.333px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    margin-top: 5px;
+    transition: all 0.15s;
+    box-sizing: border-box;
+    width: 300px;
+    height: 40px;
+    background-image: url(../imagens/icone-botoes/backward-solid.svg);
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: 10px;
+}
+
+.botao-de-voltar-a-pagina-inicial:hover {
+    opacity: 0.8;
+}
+
+.botao-de-voltar-a-pagina-inicial:active {
+    opacity: 0.6;
+}
+
+/* Mensagem de Obrigado */
+.obrigado {
+    margin-left: 50px;
+    margin-right: 50px;
+    text-align: center;
+}
+
+/* "Botões" de Acessibilidade */
+.acessibility-buttons {
+    margin-right: 2px;
+}
+
+.acessibility-buttons > div {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 50%;
+    bottom: 50%;
+    gap: 2px;
+    padding: 3px;
+    border-radius: 5px;
+    background-color: rgba(23, 50, 118, 0.11);
+}
+/* "Botões" de Acessibilidade */
+.acessibilidade-mais,
+.acessibilidade-menos {
+    transition: all 0.50s;
+    width: 20px;
+}
+
+.acessibilidade-mais:hover,
+.acessibilidade-menos:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+/* O Código abaixo faz os botões "brancos" que aparecem no Dark Mode não carregarem na página de imediato */
+.lm-dm {
+    display: none;
+}
+
+/* Botões de White e Dark Mode */
+.botao-white-mode,
+.botao-dark-mode {
+    transition: all 0.50s;
+    align-self: center;
+}
+
+.botao-white-mode {
+    width: 20px;
+    display: none;
+}
+
+.botao-dark-mode {
+    width: 16px;
+}
+
+.botao-white-mode:hover,
+.botao-dark-mode:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}

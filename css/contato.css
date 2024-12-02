@@ -1,0 +1,323 @@
+/* Importação da Fonte "Inter" da API do Google */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* Fonte "Inter" Como Padrão Para Todo o Site */
+* {
+    font-family: "Inter", Arial;
+    transition: all 0.15s;
+}
+
+/* Cores do Light e Dark Mode */
+:root {
+    --primary-color: rgb(23,50,118);
+    --secondary-color: White;
+}
+
+.dark-mode {
+    --primary-color: white;
+    --secondary-color: #121212;
+}
+
+/* Responsividade de Altura e Largura */
+@media (max-width: 1000px) {
+
+    div.container-esquerdo {
+        flex: 0;
+    }
+
+    div.container-esquerdo > img {
+        display: none;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    form {
+        width: 100%
+    }
+
+    input#nome,
+    input#email,
+    textarea#mensagem {
+        width: 90%;
+    }
+
+    button.botao-de-enviar,
+    a.botao-de-voltar-a-pagina-inicial {
+        width: 90%;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .campo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    }
+
+    div.container-direito {
+        width: 300px;
+    }
+
+    img#logomarca.logomarca,
+    img#logomarca-dark-mode {
+        width: 250px;
+    }
+
+    input#nome,
+    input#email,
+    textarea#mensagem {
+        width: 250px;
+    }
+
+    button.botao-de-enviar,
+    a.botao-de-voltar-a-pagina-inicial {
+        width: 250px;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+}
+
+@media (max-height: 1000px) {
+
+    img.logomarca {
+        width: 50vh;
+    }
+
+    img.logomarca-dark-mode {
+        width: 50vh;
+    }
+
+}
+
+/* Scrollbar Personalizada*/
+body::-webkit-scrollbar {
+    width: 2px;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: rgb(160, 160, 160);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color)
+}
+
+/* Margens e Padding's Zerados do Body */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Container - Engloba o Lado Esquerdo e Direito*/
+.container {
+    display: flex;
+}
+
+/* Container Esquerdo */
+.container-esquerdo {
+    flex: 1;
+}
+
+.imagem {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    position: fixed;
+    object-position: 75%;
+    transform: scaleX(-1);
+    
+}
+
+/* Container Direito */
+.container-direito {
+    flex: 1;
+    justify-items: center;
+    align-content: center;
+    height: 100vh;
+    text-align: center;
+    background-color: var(--secondary-color);
+}
+
+/* Imagem da Logomarca no Container Direito */
+.logomarca,
+.logomarca-dark-mode {
+    width: 400px;
+    max-width: 100%;
+    margin-bottom: 19px;
+}
+
+.logomarca-dark-mode {
+    display: none;
+}
+
+/* Divisões dos Campos */
+.campo {
+    margin-top: 5px;
+}
+
+/* Estilização dos Input's de Nome, E-Mail e Mensagem */
+.nome,
+.email,
+.mensagem {
+    text-align: center;
+    border: none;
+    border-bottom: 2px solid var(--primary-color);
+    margin-top: 5px;
+    outline: none;
+    width: 400px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    height: 40px;
+    transition: all 0.15s;
+    padding-left: 30px;
+    padding-right: 30px;
+    box-shadow: rgba(105, 105, 105, 0.25) 0px 1px 1px, rgba(151, 151, 151, 0.13) 0px 0px 1px 1px;
+}
+
+/* Estilização da Caixa de Texto da Mensagem */
+.mensagem {
+    resize: none;
+    height: 300px;
+    transition: all 0.50s;
+    padding: 10px 5px;
+    background-color: transparent;
+}
+
+
+/* /* Ícones Dentro dos Input's e Estilização Dos Mesmos */
+.nome {
+    background: url(../imagens/icones-pagina-registro/icone-nome.svg) no-repeat left;
+    background-position: 10px;
+    background-size: 14px;
+}
+
+.email {
+    background: url(../imagens/icones-pagina-registro/icone-email.svg) no-repeat left;
+    background-position: 10px;
+    background-size: 14px;
+}
+
+/* Estilização do Botão de Enviar e Voltar à Página Inicial */
+.botao-de-enviar {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    margin-top: 5px;
+    transition: all 0.15s;
+    box-sizing: border-box;
+    width: 200px;
+    height: 40px;
+    background-image: url(../imagens/icone-botoes/paper-plane-solid.svg);
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: 10px;
+    vertical-align: middle;
+}
+
+.botao-de-voltar-a-pagina-inicial {
+    display: inline-block;
+    font-size: 13.333px;
+    cursor: pointer;
+    border: none;
+    width: 200px;    
+    box-sizing: border-box;
+    margin-top: 5px;
+    transition: all 0.15s;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 5px;
+    text-decoration: none;
+    height: 40px;
+    background-image: url(../imagens/icone-botoes/backward-solid.svg);
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: 11px;
+    vertical-align: middle;
+}
+
+a > span {
+    position: relative;
+    top: 12px;
+    left: 9px;
+}
+
+.botao-de-enviar:hover,
+.botao-de-voltar-a-pagina-inicial:hover {
+    opacity: 0.8;
+}
+
+.botao-de-enviar:active,
+.botao-de-voltar-a-pagina-inicial:active {
+    opacity: 0.6;
+}
+
+/* Mensagem de Erro */
+.span-required {
+    display: none;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.acessibility-buttons {
+    margin-right: 2px;
+}
+
+.acessibility-buttons > div {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 50%;
+    bottom: 50%;
+    gap: 2px;
+    padding: 3px;
+    border-radius: 5px;
+    background-color: rgba(23, 50, 118, 0.11);
+}
+/* "Botões" de Acessibilidade */
+.acessibilidade-mais,
+.acessibilidade-menos {
+    transition: all 0.50s;
+    width: 20px;
+}
+
+.acessibilidade-mais:hover,
+.acessibilidade-menos:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+/* O Código abaixo faz os botões "brancos" que aparecem no Dark Mode não carregarem na página de imediato */
+.lm-dm {
+    display: none;
+}
+
+/* Botões de White e Dark Mode */
+.botao-white-mode,
+.botao-dark-mode {
+    transition: all 0.50s;
+    align-self: center;
+}
+
+.botao-white-mode {
+    width: 20px;
+    display: none;
+}
+
+.botao-dark-mode {
+    width: 16px;
+}
+
+.botao-white-mode:hover,
+.botao-dark-mode:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
