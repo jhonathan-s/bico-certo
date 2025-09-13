@@ -47,8 +47,76 @@ function sexoValidate() {
 }
 
 function cpfValidate() {
-    const cpfValue = campos[4].value.replace(/\D/g, '');
-    cpfValue.length === 11 ? removeError(4) : setError(4);
+    let cpf            = campos[4].value.replace(/\D/g, ''); // REMOVE CARACTERES NÃO-NÚMERICOS
+
+    let dv1            = Number(cpf[9]); // PRIMEIRO DIGITO VERIFICADOR DIGITADO NO FORMULÁRIO
+    let d_vef1         = 0;      // PRIMEIRO DÍGITO VERIFICADOR CALCULADO USANDO A LÓGICA
+    let lista_dv1      = [];     // LISTA COM OS 9 PRIMEIROS DÍGITOS MULTIPLICADOS POR SEUS PESOS
+    let soma_lista_dv1 = 0;      // SOMA DA MULTIPLICAÇÃO DOS 9 PRIMEIROS DÍGITOS
+    let calculo_dv1    = 0;      // REALIZA A MULTIPLICAÇÃO DO DÍGITO COM O SEU PESO
+    let incremento_dv1 = 10;     // SIMPLES INCREMENTO PARA REALIZAR A MULTIPLICAÇÃO DECRESCENTE DOS DÍGITOS
+    
+    let dv2            = Number(cpf[10]); // SEGUNDO DIGITO VERIFICADOR DIGITADO NO FORMULÁRIO
+    let d_vef2         = 0;       // SEGUNDO DÍGITO VERIFICADOR CALCULADO USANDO A LÓGICA
+    let lista_dv2      = [];      // LISTA COM OS 10 PRIMEIROS DÍGITOS MULTIPLICADOS POR SEUS PESOS
+    let soma_lista_dv2 = 0;       // SOMA DA MULTIPLICAÇÃO DOS 10 PRIMEIROS DÍGITOS
+    let calculo_dv2    = 0;       // REALIZA A MULTIPLICAÇÃO DO DÍGITOCOM O SEU PESO
+    let incremento_dv2 = 11;      // SIMPLES INCREMENTO PARA REALIZAR A MULTIPLICAÇÃO DECRESCENTE DOS DÍGITOS
+    
+    // TRANSFORMA O CPF EM UMA LISTA
+    cpf = cpf.split('');
+
+    // CÁLCULOS PARA O PRIMEIRO DÍGITO VERIFICADOR
+    // ITERA SOBRE OS 9 PRIMEIROS DíGITOS E RETORNA COM UMA LISTA COM CADA DÍGITO MULTIPLICADO
+    for (let i = 0; i < 9; i++) {
+        calculo_dv1 = cpf[i] * incremento_dv1;
+        incremento_dv1 -= 1;
+        lista_dv1.push(calculo_dv1);
+    }
+
+    // VERIFICA SE O NONO DÍGITO É DIFERENTE DE "NaN"
+    if (!isNaN(lista_dv1.at(-1))) {
+        for (let i = 0; i < lista_dv1.length; i++) {
+            soma_lista_dv1 += lista_dv1[i];
+        }
+    }
+
+    // CALCULA O PRIMEIRO DÍGITO VERIFICADOR
+    if (soma_lista_dv1 % 11 <= 1) {
+        d_vef1 = 0;
+    } else {
+        d_vef1 = 11 - (soma_lista_dv1 % 11);
+    }
+
+    // CÁLCULOS PARA O SEGUNDO DÍGITO VERIFICADOR
+    // ITERA SOBRE OS 10 PRIMEIROS DÍGITOS E RETORNA COM UMA LISTA COM CADA DÍGITO MULTIPLICADO
+    for (let i = 0; i < 10; i++) {
+        calculo_dv2 = cpf[i] * incremento_dv2;
+        incremento_dv2 -= 1;
+        lista_dv2.push(calculo_dv2);
+    }
+
+    // VERIFICA SE O DÉCIMO DÍGITO É DIFERENTE DE "NaN"
+    if (!isNaN(lista_dv2.at(-1))) {
+        for (let i = 0; i < lista_dv2.length; i++) {
+            soma_lista_dv2 += lista_dv2[i];
+        }
+    }
+
+    // CALCULA O SEGUNDO DÍGITO VERIFICADOR
+    if (soma_lista_dv2 % 11 <= 1) {
+        d_vef2 = 0;
+    } else {
+        d_vef2 = 11 - (soma_lista_dv2 % 11);
+    }
+
+    // VERIFICA SE OS DÍGITOS VERIFICADORES DIGITADOS COINCIDEM COM OS DÍGITOS CALCULADOS
+    if (dv1 === d_vef1 && dv2 === d_vef2) {
+        removeError(4);
+    } else {
+        setError(4);
+    }
+
 }
 
 function celValidate() {
