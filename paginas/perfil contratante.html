@@ -1,0 +1,180 @@
+<!DOCTYPE html> 
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="icon" href="../imagens/icones-aba/icone16.ico" sizes="16x16">
+    <link rel="icon" href="../imagens/icones-aba/icone24.ico" sizes="24x24">
+    <link rel="icon" href="../imagens/icones-aba/icone32.ico" sizes="32x32">
+    <link rel="icon" href="../imagens/icones-aba/icone48.ico" sizes="48x48">
+    <link rel="stylesheet" href="/css/perfil contratante.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="top-bar">
+            <div class="icone">
+                <a href="./homepage.html">
+                    <img src="../imagens/logomarca.png" class="logomarca">
+                </a>
+            </div>
+            <div class="menu">
+                <div class="logo">
+                    <span><a href="./servicos.html">
+                    <img src="../imagens/perfil/servicos.svg"></a></span>
+                </div>
+                <div class="logo">
+                    <span><a href="./mensagem.html">
+                    <img src="../imagens/perfil/envelope.svg"></a></span>
+                </div>
+                <div class="logo">
+                    <span><a href="./notifications.html">
+                    <img src="../imagens/perfil/notificação.svg"></a></span>
+                </div>
+                <!-- Ícone de perfil com menu de opções -->
+                <div class="logo" onclick="toggleProfileMenu()">
+                    <img src="../imagens/servicos/perfil_6.jpg">
+                </div>
+            </div>
+        </header>
+        <div class="profile-menu" id="profileMenu">
+            <ul>
+                <li><a href="./perfil.html">Meu Perfil</a></li>
+                <li><a href="./profile-edit.html">Editar Perfil</a></li>
+                <li><a href="./login.html">Sair</a></li>
+            </ul>
+        </div>
+
+        <!-- Profile Section -->
+        <div class="profile"> <!-- Seção que contém as informações do perfil do usuário -->
+            <!-- Banner Section -->
+            <div class="banner"> <!-- Seção do banner de perfil -->
+                <img src="../imagens/perfil/fundo.jpg"> <!-- Imagem do banner, representando o perfil -->
+            </div>
+        
+            <!-- Profile Info Section -->
+            <div class="profile-info-container"> <!-- Contêiner para as informações do perfil -->
+                <div class="profile-pic"> <!-- Seção para a foto de perfil do usuário -->
+                    <img src="../imagens/servicos/perfil_6.jpg"> <!-- Imagem da foto de perfil -->
+                </div>
+                <div class="user-info"> <!-- Seção que contém as informações do usuário -->
+                    <h2>Hudson Alves</h2> <!-- Nome do usuário -->
+                    <span id="status-indicator" class="status-indicator"></span> <!-- Indicador visual do status selecionado -->
+                    <p>⭐⭐⭐⭐⭐</p>
+                    <p><strong>Registro em</strong>: Janeiro 24, 2024</p> <!-- Data em que o usuário se registrou -->
+                    <p><strong>Última visita</strong>: <span id="ultima-visita"></span></p> <!-- Última visita do usuário (preenchido dinamicamente) -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content"> <!-- Seção principal do conteúdo, onde as informações detalhadas do usuário são exibidas -->
+            <!-- Left Column - User Info -->
+            <div class="user-details"> <!-- Coluna esquerda contendo informações do usuário -->
+                <h3>Informações</h3> <!-- Título para a seção de informações -->
+                <p><strong>Nome</strong>: Hudson Alves Souza Ribanreli</p> <!-- Nome completo do usuário -->
+                
+                <p><strong>N.º do Celular</strong>: +55 (21) 91234-5678</p> <!-- Nome completo do usuário -->
+
+                <p><strong>Gênero</strong>: Masculino</p> <!-- Gênero do usuário -->
+                
+                 <p><strong>Contratos</strong>: <span id="contador-contratos">0</span> Contratos</p> <!-- quantidades de contratos que ele ja realizou -->
+                
+                <p><strong>Localidade</strong>: Rio De Janeiro</p> <!-- Localização do usuário -->
+            </div>
+
+            <!-- Right Column - Activities -->
+            <div class="activities"> <!-- Coluna direita que lista as atividades relacionadas ao usuário -->
+                <h3>Reclamações ou Opiniões</h3> <!-- Título para a seção de atividades -->
+
+                <!-- Activity 1 - Curtida -->
+<div class="activity">
+    <img src="../imagens/servicos/perfil_5.jpeg" class="perfil">
+    <div class="activity-content">
+        <p><strong>Ricardo Alves curtiu seu Perfil.</strong></p>
+        <div class="activity-interactions">
+            <span><img src="../imagens/perfil/clock-blue.svg">Setembro 29, 2024</span>
+        </div>
+    </div>
+</div>
+
+<!-- Activity 2 - Curtida -->
+<div class="activity">
+    <img src="../imagens/servicos/perfil_14.jpg" class="perfil">
+    <div class="activity-content">
+        <p><strong>Roberto da Silva curtiu seu Perfil.</strong></p>
+        <div class="activity-interactions">
+            <span><img src="../imagens/perfil/clock-blue.svg">Setembro 26, 2024</span>
+        </div>
+    </div>
+</div>
+
+<!-- Activity 3 - Comentário -->
+<div class="activity">
+    <img src="../imagens/servicos/perfil_8.jpg" class="perfil">
+    <div class="activity-content">
+        <p><strong>Roberta Amarantos comentou no seu Perfil.</strong></p>
+        <p><i>Você foi bem receptivo, ofereceu café e deixou tudo organizado pra eu trabalhar. Recomendo como contratante!</i></p>
+        <div class="activity-interactions">
+            <span><img src="../imagens/perfil/clock-blue.svg">Setembro 26, 2024</span>
+        </div>
+    </div>
+</div>
+
+<!-- Activity 4 - Comentário -->
+<div class="activity">
+    <img src="../imagens/servicos/perfil_9.jpg" class="perfil">
+    <div class="activity-content">
+        <p><strong>Élio Alves comentou no seu Perfil.</strong></p>
+        <p><i>Foi uma boa experiência, mas senti que faltou um pouco mais de clareza nas instruções. Fora isso, tudo certo.</i></p>
+        <div class="activity-interactions">
+            <span><img src="../imagens/perfil/clock-blue.svg">Setembro 25, 2024</span>
+        </div>
+    </div>
+</div>
+
+<!-- Activity 5 - Comentário -->
+<div class="activity">
+    <img src="../imagens/servicos/perfil_20.jpg" class="perfil">
+    <div class="activity-content">
+        <p><strong>Rodrigo Almeida comentou no seu Perfil.</strong></p>
+        <p><i>Infelizmente tive dificuldades, pois não recebi o pagamento no prazo combinado. Acho que isso poderia melhorar.</i></p>
+        <div class="activity-interactions">
+            <span><img src="../imagens/perfil/clock-blue.svg">Setembro 15, 2024</span>
+        </div>
+    </div>
+</div>
+
+<!-- Activity 6 - Comentário -->
+<div class="activity">
+    <img src="../imagens/servicos/perfil_1.jpeg" class="perfil">
+    <div class="activity-content">
+        <p><strong>Rafaela Andrade comentou no seu Perfil.</strong></p>
+        <p><i>Foi ótimo trabalhar pra você! Tudo organizado, pagamento certo e ambiente tranquilo. Espero voltar em breve.</i></p>
+        <div class="activity-interactions">
+            <span><img src="../imagens/perfil/clock-blue.svg">Setembro 10, 2024</span>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+        <!-- Footer-->
+        <footer>
+            <div class="footer-image">
+                <img src="../imagens/logomarca-dark-mode.png">
+            </div>
+            <div class="vertical-row"></div>
+            <div class="footer-list">
+                <ul>
+                    <li class="footer-list-option"><a href="./contato.html" target="_blank">Contato</a></li>
+                    <li class="footer-list-option"><a href="./sobrenos.html" target="_blank">Sobre</a></li>
+                </ul>
+            </div>
+        </footer>
+    <script src="/script/perfil/ultima visista.js"></script><!-- Link para o script que atualiza a última visita -->
+    <script src="/script/perfil/status do perfil.js"></script>
+</body>
+</html>
