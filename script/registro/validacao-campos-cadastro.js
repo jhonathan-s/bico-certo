@@ -24,7 +24,7 @@ function removeError(index) {
 
 // Validações individuais
 function nameValidate() {
-    campos[0].value.length < 15 ? setError(0) : removeError(0);
+    campos[0].value.length < 15 || campos[0].value.length > 60 ? setError(0) : removeError(0);
 }
 
 function emailValidate() {
