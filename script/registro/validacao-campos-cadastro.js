@@ -50,19 +50,29 @@ function cpfValidate() {
     let cpf            = campos[4].value.replace(/\D/g, ''); // REMOVE CARACTERES NÃO-NÚMERICOS
 
     let dv1            = Number(cpf[9]); // PRIMEIRO DIGITO VERIFICADOR DIGITADO NO FORMULÁRIO
-    let d_vef1         = 0;      // PRIMEIRO DÍGITO VERIFICADOR CALCULADO USANDO A LÓGICA
-    let lista_dv1      = [];     // LISTA COM OS 9 PRIMEIROS DÍGITOS MULTIPLICADOS POR SEUS PESOS
-    let soma_lista_dv1 = 0;      // SOMA DA MULTIPLICAÇÃO DOS 9 PRIMEIROS DÍGITOS
-    let calculo_dv1    = 0;      // REALIZA A MULTIPLICAÇÃO DO DÍGITO COM O SEU PESO
-    let incremento_dv1 = 10;     // SIMPLES INCREMENTO PARA REALIZAR A MULTIPLICAÇÃO DECRESCENTE DOS DÍGITOS
+    let d_vef1         = 0;              // PRIMEIRO DÍGITO VERIFICADOR CALCULADO USANDO A LÓGICA
+    let lista_dv1      = [];             // LISTA COM OS 9 PRIMEIROS DÍGITOS MULTIPLICADOS POR SEUS PESOS
+    let soma_lista_dv1 = 0;              // SOMA DA MULTIPLICAÇÃO DOS 9 PRIMEIROS DÍGITOS
+    let calculo_dv1    = 0;              // REALIZA A MULTIPLICAÇÃO DO DÍGITO COM O SEU PESO
+    let incremento_dv1 = 10;             // SIMPLES INCREMENTO PARA REALIZAR A MULTIPLICAÇÃO DECRESCENTE DOS DÍGITOS
     
     let dv2            = Number(cpf[10]); // SEGUNDO DIGITO VERIFICADOR DIGITADO NO FORMULÁRIO
-    let d_vef2         = 0;       // SEGUNDO DÍGITO VERIFICADOR CALCULADO USANDO A LÓGICA
-    let lista_dv2      = [];      // LISTA COM OS 10 PRIMEIROS DÍGITOS MULTIPLICADOS POR SEUS PESOS
-    let soma_lista_dv2 = 0;       // SOMA DA MULTIPLICAÇÃO DOS 10 PRIMEIROS DÍGITOS
-    let calculo_dv2    = 0;       // REALIZA A MULTIPLICAÇÃO DO DÍGITOCOM O SEU PESO
-    let incremento_dv2 = 11;      // SIMPLES INCREMENTO PARA REALIZAR A MULTIPLICAÇÃO DECRESCENTE DOS DÍGITOS
-    
+    let d_vef2         = 0;               // SEGUNDO DÍGITO VERIFICADOR CALCULADO USANDO A LÓGICA
+    let lista_dv2      = [];              // LISTA COM OS 10 PRIMEIROS DÍGITOS MULTIPLICADOS POR SEUS PESOS
+    let soma_lista_dv2 = 0;               // SOMA DA MULTIPLICAÇÃO DOS 10 PRIMEIROS DÍGITOS
+    let calculo_dv2    = 0;               // REALIZA A MULTIPLICAÇÃO DO DÍGITOCOM O SEU PESO
+    let incremento_dv2 = 11;              // SIMPLES INCREMENTO PARA REALIZAR A MULTIPLICAÇÃO DECRESCENTE DOS DÍGITOS
+
+    // LISTA CONTENDO CPFs REPETIDOS
+    let lista_cpfs_repetidos = ['00000000000', '11111111111', '22222222222','33333333333', '44444444444',
+                                   '55555555555', '66666666666', '77777777777', '88888888888', '99999999999'];
+
+    // VERIFICA SE O CPF DIGITADO SÃO APENAS NÚMEROS REPETIDOS
+    function verificar_numeros_repetidos(cpf) {
+        let cpf_repetido = lista_cpfs_repetidos.indexOf(cpf) != -1;
+        return cpf_repetido;
+    }
+
     // TRANSFORMA O CPF EM UMA LISTA
     cpf = cpf.split('');
 
@@ -110,8 +120,11 @@ function cpfValidate() {
         d_vef2 = 11 - (soma_lista_dv2 % 11);
     }
 
-    // VERIFICA SE OS DÍGITOS VERIFICADORES DIGITADOS COINCIDEM COM OS DÍGITOS CALCULADOS
-    if (dv1 === d_vef1 && dv2 === d_vef2) {
+    // JUNTA TODOS OS DÍGITOS DO CPF EM UMA STRING
+    cpf = cpf.join('');
+
+    // VERIFICA SE OS DÍGITOS VERIFICADORES DIGITADOS COINCIDEM COM OS DÍGITOS CALCULADOS E SE O CPF DIGITADO NÃO SÃO APENAS NÚMEROS REPETIDOS
+    if ((dv1 === d_vef1 && dv2 === d_vef2) && !(verificar_numeros_repetidos(cpf))) {
         removeError(4);
     } else {
         setError(4);
