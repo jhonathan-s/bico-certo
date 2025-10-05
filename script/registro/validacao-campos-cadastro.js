@@ -25,13 +25,12 @@ function removeError(index) {
 // Validações individuais
 function nameValidate() {
 
-    // Impede qualquer caracteres não alfabéticos.
+    // Impede qualquer caractere não alfabético.
     document.getElementById("nome").addEventListener("input", function () {
         this.value = this.value.replace(/[^A-Za-zÀ-ÿ\s]/g, ""); 
     });
 
     campos[0].value.length < 8 || campos[0].value.length > 60 ? setError(0) : removeError(0);
-
 }
 
 function emailValidate() {
