@@ -244,7 +244,7 @@ btnRegister.addEventListener('click', (event) => {
     bairroValidate();
     loginValidate();
     senhaValidate();
-    confirmarsenhaValidate();
+    confirmarSenhaValidate();
     userRoleValidate();
     userPrestadorRoleValidate();
     // Verificação de erros
