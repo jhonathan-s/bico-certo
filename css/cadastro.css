@@ -151,7 +151,7 @@ option {
     font-size: 13px;
     margin-top: 5px;
     align-self: center;
-    width: 100%;
+    width: 300px;
 }
 
 /* Container - Engloba o Lado Esquerdo e Direito*/
@@ -184,6 +184,11 @@ option {
     flex-direction: column;
     text-align: center;
     background-color: var(--secondary-color);
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
 }
 
 .coluna1,
