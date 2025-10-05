@@ -18,12 +18,12 @@
         <div class="container-direito" id="container-direito">
             <img src="../imagens/logomarca.png" class="logomarca" id="logomarca">
             <img src="../imagens/logomarca-dark-mode.png" class="logomarca-dark-mode" id="logomarca-dark-mode">
-            <div id="form">
+            <form action="../server-side/registration/registration-validation.php" method="post" id="form">
                 <h1>Informações Pessoais</h1>
                 <div class="coluna1">
                     <div class="campo">
                         <input type="text" class="nome required" placeholder="Nome Completo" id="nome" oninput="nameValidate()">
-                        <span class="span-required">Nome deve ter no mínimo 15 caracteres e no máximo 60.</span>
+                        <span class="span-required">Nome deve ter no mínimo 8 caracteres alfabéticos e no máximo 60.</span>
                     </div>
                     <div class="campo">
                         <input type="email" class="email required" placeholder="E-mail" name="e-mail" maxlength="30" id="email" oninput="emailValidate()">
@@ -47,7 +47,7 @@
                     </div>
                     <div class="campo">
                         <input type="tel" class="celular required" placeholder="Número do Celular" maxlength="19" id="celular" oninput="celValidate()">
-                        <span class="span-required">Digite um número de celular válido.</span>
+                        <span class="span-required">Digite um número de celular que siga o padrão: (+55)XX-XXXXXXXXX.</span>
                     </div>
                 </div>
                 <h1>Localização</h1>
@@ -84,14 +84,14 @@
                 <div class="coluna3">
                     <div class="campo">
                         <input type="text" class="login required" placeholder="Login" maxlength="6" id="login" oninput="loginValidate()">
-                        <span class="span-required">Login deve ter exatamente 6 caracteres.</span>
+                        <span class="span-required">Login deve ter exatamente 6 caracteres alfabéticos.</span>
                     </div>
                     <div class="campo">
-                        <input type="password" class="senha required" placeholder="Senha" maxlength="8" id="senha" oninput="senhaValidate()">
+                        <input type="password" class="senha required" placeholder="Senha" maxlength="8" id="senha" oninput="senhaValidate(this.value)">
                         <span class="span-required">Senha deve ter exatamente 8 caracteres.</span>
                     </div>
                     <div class="campo">
-                        <input type="password" class="confirmar-senha required" placeholder="Confirmar Senha" maxlength="8" id="confirmar-senha" oninput="confirmarsenhaValidate()">
+                        <input type="password" class="confirmar-senha required" placeholder="Confirmar Senha" maxlength="8" id="confirmar-senha" oninput="confirmarSenhaValidate()">
                         <span class="span-required">As senhas precisam ser iguais.</span>
                     </div>
                 </div>
@@ -195,11 +195,14 @@
                         <span class="span-required">Selecione que tipo de serviço você oferecerá na plataforma.</span>
                     </div>
                 </div>
-                <button class="botao-de-cadastrar-usuario">Cadastrar Usuário</button>
-                <a href="../index.html" class="botao-de-voltar-a-pagina-inicial">
-                    <span>Voltar à Página Inicial</span>
-                </a>
-            </div>
+                <div class="buttons-container">
+                    <button type="submit" class="botao-de-cadastrar-usuario">Cadastrar Usuário</button>
+                    <button type="reset" class="botao-de-limpar-formulario">Limpar Formulário</button>
+                    <a href="../index.html" class="botao-de-voltar-a-pagina-inicial">
+                        <span>Voltar à Página Inicial</span>
+                    </a>
+                </div>
+            </form>
         </div>
         <div class="acessibility-buttons">
             <div class="acessibility-panel">

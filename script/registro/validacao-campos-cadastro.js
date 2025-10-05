@@ -24,7 +24,13 @@ function removeError(index) {
 
 // Validações individuais
 function nameValidate() {
-    campos[0].value.length < 15 || campos[0].value.length > 60 ? setError(0) : removeError(0);
+
+    // Impede qualquer caractere não alfabético.
+    document.getElementById("nome").addEventListener("input", function () {
+        this.value = this.value.replace(/[^A-Za-zÀ-ÿ\s]/g, ""); 
+    });
+
+    campos[0].value.length < 8 || campos[0].value.length > 60 ? setError(0) : removeError(0);
 }
 
 function emailValidate() {
@@ -133,8 +139,25 @@ function cpfValidate() {
 }
 
 function celValidate() {
-    const numeros = document.getElementById('celular').value.replace(/\D/g, '');
-    numeros.length >= 13 ? removeError(5) : setError(5);
+    const input = document.getElementById('celular');
+    let numeros = input.value.replace(/\D/g, ''); // só números
+
+    // Se o usuário começar sem o +55, já forçamos no início
+    if (!numeros.startsWith("55")) {
+        numeros = "55" + numeros;
+    }
+
+    // Verifica se tem exatamente 13 dígitos (55 + DDD + número com 9 dígitos)
+    if (numeros.length === 13) {
+        const ddd = numeros.substring(2, 4);
+        const numero = numeros.substring(4);
+
+        // Formata: (+55)XX-XXXXXXXXXX
+        input.value = `(+55)${ddd}-${numero}`;
+        removeError(5);
+    } else {
+        setError(5);
+    }
 }
 
 function cepValidate() {
@@ -163,14 +186,32 @@ function bairroValidate() {
 }
 
 function loginValidate() {
+
+    // Impede qualquer caractere não alfabético.
+    document.getElementById("login").addEventListener("input", function () {
+        this.value = this.value.replace(/[^A-Za-zÀ-ÿ\s]/g, ""); 
+    });
+
     campos[12].value.length < 6 ? setError(12) : removeError(12);
 }
 
 function senhaValidate() {
+
+    // Impede qualquer caractere não alfabético.
+    campos[13].addEventListener("input", function () {
+        this.value = this.value.replace(/[^A-Za-zÀ-ÿ\s]/g, ""); 
+    });
+
     campos[13].value.length < 8 ? setError(13) : removeError(13);
 }
 
-function confirmarsenhaValidate() {
+function confirmarSenhaValidate() {
+
+    // Impede qualquer caractere não alfabético.
+    campos[14].addEventListener("input", function () {
+        this.value = this.value.replace(/[^A-Za-zÀ-ÿ\s]/g, ""); 
+    });
+
     campos[14].value !== campos[13].value ? setError(14) : removeError(14);
 }
 
@@ -180,10 +221,6 @@ function userRoleValidate() {
 
 function userPrestadorRoleValidate() {
     campos[16].checked && campos[17].value === '' ? setError(16) : removeError(16);
-}
-
-function redirect() {
-  
 }
 
 // Evento de submit do formulário
@@ -203,7 +240,7 @@ btnRegister.addEventListener('click', (event) => {
     bairroValidate();
     loginValidate();
     senhaValidate();
-    confirmarsenhaValidate();
+    confirmarSenhaValidate();
     userRoleValidate();
     userPrestadorRoleValidate();
     // Verificação de erros
@@ -211,8 +248,10 @@ btnRegister.addEventListener('click', (event) => {
     if (temErro) {
         event.preventDefault();
     } else {
+        let senhaCriptografada = btoa(campos[13].value); // Criptografa a senha utilizando o método Base64
+
         const userEmail = JSON.stringify(campos[1].value);
-        const userPassword = JSON.stringify(campos[13].value);
+        const userPassword = JSON.stringify(senhaCriptografada);
 
         if (campos[15].checked) {
             const userRole = campos[15].checked.value = 'contratante'; 
@@ -224,7 +263,5 @@ btnRegister.addEventListener('click', (event) => {
 
         localStorage.setItem("userEmail", userEmail);
         localStorage.setItem("userPassword", userPassword);
-
-        window.location.href = "../../paginas/cadastro-bem-sucedido.html";
     }
 });

@@ -151,7 +151,7 @@ option {
     font-size: 13px;
     margin-top: 5px;
     align-self: center;
-    width: 100%;
+    width: 300px;
 }
 
 /* Container - Engloba o Lado Esquerdo e Direito*/
@@ -184,6 +184,11 @@ option {
     flex-direction: column;
     text-align: center;
     background-color: var(--secondary-color);
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
 }
 
 .coluna1,
@@ -384,6 +389,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     display: none;
 }
 
+.services {
+    display: flex;
+    flex-direction: column;
+}
 
 .services > select {
     width: 532px;
@@ -414,8 +423,19 @@ optgroup > option {
     text-align: left;
 }
 
+/* CONTAINER DE BOTÕES */
+.buttons-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
 /* Botões de Cadastro e Voltar à Página Inicial*/
 .botao-de-cadastrar-usuario,
+.botao-de-limpar-formulario,
 .botao-de-voltar-a-pagina-inicial {
     cursor: pointer;
     font-size: 13.333px;
@@ -441,12 +461,19 @@ optgroup > option {
     background-image: url(../imagens/icone-botoes/backward-solid.svg);
 }
 
+.botao-de-limpar-formulario {
+    background-size: 24px;
+    background-image: url(../imagens/icone-botoes/broom-icon.svg);
+}
+
 .botao-de-cadastrar-usuario:hover,
+.botao-de-limpar-formulario:hover,
 .botao-de-voltar-a-pagina-inicial:hover {
     opacity: 0.8;
 }
 
 .botao-de-cadastrar-usuario:active,
+.botao-de-limpar-formulario:active,
 .botao-de-voltar-a-pagina-inicial:active {
     opacity: 0.6;
 }
