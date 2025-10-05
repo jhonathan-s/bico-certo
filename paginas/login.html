@@ -18,7 +18,7 @@
         <div class="container-direito" id="container-direito">
             <img src="../imagens/logomarca.png" class="logomarca" id="logomarca">
             <img src="../imagens/logomarca-dark-mode.png" class="logomarca-dark-mode" id="logomarca-dark-mode">
-            <div id="form">
+            <form action="../server-side/login/login-validation.php" method="#" id="form">
                 <div class="campo">
                     <input id="email" type="email" class="email required" placeholder="E-mail" oninput="emailValidate()">
                     <span class="span-required">Digite um e-mail válido.</span>
@@ -42,14 +42,12 @@
                     <button class="botao-de-entrar">
                         Entrar
                     </button>
-                    <a href="./cadastro.html" class="new-user">
-                        <span>Me Cadastrar</span>
-                    </a>
+                    <button type="reset" class="botao-de-limpar-campos">Limpar Campos</button>
                     <a href="../index.html" class="homepage">
                         <span>Voltar à Página Inicial</span>
                     </a>
                 </div>
-            </div>
+            </form>
         </div>
         <div class="acessibility-buttons">
             <div class="acessibility-panel">
