@@ -389,6 +389,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     display: none;
 }
 
+.services {
+    display: flex;
+    flex-direction: column;
+}
 
 .services > select {
     width: 532px;
