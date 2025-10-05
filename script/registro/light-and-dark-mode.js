@@ -26,6 +26,7 @@ function DarkMode() {
     const prestador = document.querySelectorAll('.sou-prestador');
     const prestadorOpcoes = document.getElementById('prestador-opcoes');
     const botaoCadastrarUsuario = document.querySelectorAll('.botao-de-cadastrar-usuario');
+    const botaoLimparFormulario = document.querySelectorAll('.botao-de-limpar-formulario');
     const botaoVoltarPaginaInicial = document.querySelectorAll('.botao-de-voltar-a-pagina-inicial');
     const acessibilityPanel = document.querySelector('.acessibility-panel');
 
@@ -104,6 +105,7 @@ function DarkMode() {
     prestador[0].style.color = 'white';
     prestadorOpcoes.style.color = 'white';
     botaoCadastrarUsuario[0].style.backgroundImage = 'url(../imagens/icone-botoes/user-plus-solid-dm.svg)';
+    botaoLimparFormulario[0].style.backgroundImage = 'url(../imagens/icone-botoes/broom-icon-dm.svg)';
     botaoVoltarPaginaInicial[0].style.backgroundImage = 'url(../imagens/icone-botoes/backward-solid-dm.svg)';
     
     const botaoAumentarZoom = botoesAumentarZoom[0];
@@ -148,6 +150,7 @@ function LightMode() {
     const prestador = document.querySelectorAll('.sou-prestador');
     const prestadorOpcoes = document.getElementById('prestador-opcoes');
     const botaoCadastrarUsuario = document.querySelectorAll('.botao-de-cadastrar-usuario');
+    const botaoLimparFormulario = document.querySelectorAll('.botao-de-limpar-formulario');
     const botaoVoltarPaginaInicial = document.querySelectorAll('.botao-de-voltar-a-pagina-inicial');
     const acessibilityPanel = document.querySelector('.acessibility-panel');
 
@@ -226,6 +229,7 @@ function LightMode() {
     prestador[0].style.color = 'black';
     prestadorOpcoes.style.color = 'black';
     botaoCadastrarUsuario[0].style.backgroundImage = 'url(../imagens/icone-botoes/user-plus-solid.svg)';
+    botaoLimparFormulario[0].style.backgroundImage = 'url(../imagens/icone-botoes/broom-icon.svg)';
     botaoVoltarPaginaInicial[0].style.backgroundImage = 'url(../imagens/icone-botoes/backward-solid.svg)';
     
 
