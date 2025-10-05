@@ -186,6 +186,12 @@ function bairroValidate() {
 }
 
 function loginValidate() {
+
+    // Impede qualquer caractere não alfabético.
+    document.getElementById("login").addEventListener("input", function () {
+        this.value = this.value.replace(/[^A-Za-zÀ-ÿ\s]/g, ""); 
+    });
+
     campos[12].value.length < 6 ? setError(12) : removeError(12);
 }
 
