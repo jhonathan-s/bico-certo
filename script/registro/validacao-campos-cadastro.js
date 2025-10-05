@@ -196,10 +196,22 @@ function loginValidate() {
 }
 
 function senhaValidate() {
+
+    // Impede qualquer caractere não alfabético.
+    campos[13].addEventListener("input", function () {
+        this.value = this.value.replace(/[^A-Za-zÀ-ÿ\s]/g, ""); 
+    });
+
     campos[13].value.length < 8 ? setError(13) : removeError(13);
 }
 
-function confirmarsenhaValidate() {
+function confirmarSenhaValidate() {
+
+    // Impede qualquer caractere não alfabético.
+    campos[14].addEventListener("input", function () {
+        this.value = this.value.replace(/[^A-Za-zÀ-ÿ\s]/g, ""); 
+    });
+
     campos[14].value !== campos[13].value ? setError(14) : removeError(14);
 }
 
