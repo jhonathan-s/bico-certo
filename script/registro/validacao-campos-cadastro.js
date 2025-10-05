@@ -223,10 +223,6 @@ function userPrestadorRoleValidate() {
     campos[16].checked && campos[17].value === '' ? setError(16) : removeError(16);
 }
 
-function redirect() {
-  
-}
-
 // Evento de submit do formulário
 btnRegister.addEventListener('click', (event) => {
     // Execução de validações
