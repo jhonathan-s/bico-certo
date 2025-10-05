@@ -75,6 +75,7 @@
     input#ponto-de-referencia,
     select#prestador-opcoes,
     button.botao-de-cadastrar-usuario,
+    button.botao-de-limpar-formulario,
     a.botao-de-voltar-a-pagina-inicial,
     div.contratante,
     div.prestador {
