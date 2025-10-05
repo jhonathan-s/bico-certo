@@ -9,7 +9,7 @@ function DarkMode() {
     const email = document.getElementById('email');
     const password = document.getElementById('password');
     const botaoEntrar = document.querySelectorAll('.botao-de-entrar');
-    const botaoCadastro = document.querySelectorAll('.new-user');
+    const botaoLimparCampos = document.querySelectorAll('.botao-de-limpar-campos');
     const botaoVoltarPaginaInicial = document.querySelectorAll('.homepage');
     const acessibilityPanel = document.querySelector('.acessibility-panel');
 
@@ -29,7 +29,7 @@ function DarkMode() {
     password.style.backgroundPosition = '10px';
     password.style.backgroundSize = '14px';
     botaoEntrar[0].style.backgroundImage = 'url(../imagens/icone-botoes/right-to-bracket-solid-dm.svg)';
-    botaoCadastro[0].style.backgroundImage = 'url(../imagens/icone-botoes/user-plus-solid-dm.svg)';
+    botaoLimparCampos[0].style.backgroundImage = 'url(../imagens/icone-botoes/broom-icon-dm.svg)';
     botaoVoltarPaginaInicial[0].style.backgroundImage = 'url(../imagens/icone-botoes/backward-solid-dm.svg)';
 
     const botaoAumentarZoom = botoesAumentarZoom[0];
@@ -58,7 +58,7 @@ function LightMode() {
     const email = document.getElementById('email');
     const password = document.getElementById('password');
     const botaoEntrar = document.querySelectorAll('.botao-de-entrar');
-    const botaoCadastro = document.querySelectorAll('.new-user');
+    const botaoLimparCampos = document.querySelectorAll('.botao-de-limpar-campos');
     const botaoVoltarPaginaInicial = document.querySelectorAll('.homepage');
     const acessibilityPanel = document.querySelector('.acessibility-panel');
 
@@ -79,7 +79,7 @@ function LightMode() {
     password.style.backgroundPosition = '10px';
     password.style.backgroundSize = '14px';
     botaoEntrar[0].style.backgroundImage = 'url(../imagens/icone-botoes/right-to-bracket-solid.svg)';
-    botaoCadastro[0].style.backgroundImage = 'url(../imagens/icone-botoes/user-plus-solid.svg)';
+    botaoLimparCampos[0].style.backgroundImage = 'url(../imagens/icone-botoes/broom-icon.svg)';
     botaoVoltarPaginaInicial[0].style.backgroundImage = 'url(../imagens/icone-botoes/backward-solid.svg)';  
 
     const botaoAumentarZoom = botoesAumentarZoom[0];

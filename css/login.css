@@ -72,7 +72,7 @@
         margin-bottom: 5px;
     }
 
-    a.new-user {
+    .botao-de-limpar-campos {
         width: 100%;
         display: block;
     }
@@ -110,11 +110,12 @@ button {
     width: 175px;
     height: 40px;
     background-image: url(../imagens/icone-botoes/right-to-bracket-solid.svg);
-    background-size: 18px;
+    background-size: 23px;
     background-repeat: no-repeat;
     background-position: 10px;
     vertical-align: middle;
 }
+
 button:hover {
     opacity: 0.8;
 }
@@ -239,25 +240,10 @@ button:active {
     text-decoration: underline;
 }
 
-.new-user,
-.homepage {
-    display: inline-block;
-    font-size: 13.333px;
-    cursor: pointer;
-    border: none;
-    width: 175px;    
-    box-sizing: border-box;
-    transition: all 0.15s;
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    border-radius: 5px;
-    text-decoration: none;
-    height: 40px;
-    background-image: url(../imagens/icone-botoes/user-plus-solid.svg);
-    background-size: 18px;
-    background-repeat: no-repeat;
-    background-position: 11px;
-    vertical-align: middle;
+/* Botões */
+.botao-de-limpar-campos {
+    background-size: 24px;
+    background-image: url(../imagens/icone-botoes/broom-icon.svg);
 }
 
 .homepage {
@@ -268,6 +254,16 @@ button:active {
     background-repeat: no-repeat;
     background-position: 11px;
     margin-top: 5px;
+    font-size: 13.333px;
+    cursor: pointer;
+    border: none;
+    box-sizing: border-box;
+    transition: all 0.15s;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 5px;
+    text-decoration: none;
+    height: 40px;
 }
 
 a > span {
@@ -275,15 +271,14 @@ a > span {
     top: 12px;
 }
 
-.new-user:hover,
 .homepage:hover {
     opacity: 0.8;
 }
 
-.new-user:active,
 .homepage:active {
     opacity: 0.6;
 }
+
 
 /* Mensagem de Erro */
 .span-required {
