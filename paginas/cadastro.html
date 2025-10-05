@@ -18,7 +18,7 @@
         <div class="container-direito" id="container-direito">
             <img src="../imagens/logomarca.png" class="logomarca" id="logomarca">
             <img src="../imagens/logomarca-dark-mode.png" class="logomarca-dark-mode" id="logomarca-dark-mode">
-            <div id="form">
+            <form action="../server-side/registration/registration-validation.php" method="post" id="form">
                 <h1>Informações Pessoais</h1>
                 <div class="coluna1">
                     <div class="campo">
@@ -195,11 +195,11 @@
                         <span class="span-required">Selecione que tipo de serviço você oferecerá na plataforma.</span>
                     </div>
                 </div>
-                <button class="botao-de-cadastrar-usuario">Cadastrar Usuário</button>
+                <button type="submit" class="botao-de-cadastrar-usuario">Cadastrar Usuário</button>
                 <a href="../index.html" class="botao-de-voltar-a-pagina-inicial">
                     <span>Voltar à Página Inicial</span>
                 </a>
-            </div>
+            </form>
         </div>
         <div class="acessibility-buttons">
             <div class="acessibility-panel">
