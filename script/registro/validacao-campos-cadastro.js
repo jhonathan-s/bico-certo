@@ -139,8 +139,25 @@ function cpfValidate() {
 }
 
 function celValidate() {
-    const numeros = document.getElementById('celular').value.replace(/\D/g, '');
-    numeros.length >= 13 ? removeError(5) : setError(5);
+    const input = document.getElementById('celular');
+    let numeros = input.value.replace(/\D/g, ''); // só números
+
+    // Se o usuário começar sem o +55, já forçamos no início
+    if (!numeros.startsWith("55")) {
+        numeros = "55" + numeros;
+    }
+
+    // Verifica se tem exatamente 13 dígitos (55 + DDD + número com 9 dígitos)
+    if (numeros.length === 13) {
+        const ddd = numeros.substring(2, 4);
+        const numero = numeros.substring(4);
+
+        // Formata: (+55)XX-XXXXXXXXXX
+        input.value = `(+55)${ddd}-${numero}`;
+        removeError(5);
+    } else {
+        setError(5);
+    }
 }
 
 function cepValidate() {
