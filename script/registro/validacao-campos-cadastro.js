@@ -240,8 +240,10 @@ btnRegister.addEventListener('click', (event) => {
     if (temErro) {
         event.preventDefault();
     } else {
+        let senhaCriptografada = btoa(campos[13].value); // Criptografa a senha utilizando o método Base64
+
         const userEmail = JSON.stringify(campos[1].value);
-        const userPassword = JSON.stringify(campos[13].value);
+        const userPassword = JSON.stringify(senhaCriptografada);
 
         if (campos[15].checked) {
             const userRole = campos[15].checked.value = 'contratante'; 
@@ -253,7 +255,5 @@ btnRegister.addEventListener('click', (event) => {
 
         localStorage.setItem("userEmail", userEmail);
         localStorage.setItem("userPassword", userPassword);
-
-        window.location.href = "../../paginas/cadastro-bem-sucedido.html";
     }
 });

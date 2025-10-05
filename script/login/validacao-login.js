@@ -40,8 +40,10 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     }
 
     function userLoginValidate() {
-        const userEmail = JSON.parse(localStorage.getItem("userEmail"));
-        const userPassword = JSON.parse(localStorage.getItem("userPassword"));
+        let userEmail = JSON.parse(localStorage.getItem("userEmail"));
+        let userPassword = JSON.parse(localStorage.getItem("userPassword"));
+
+        userPassword = atob(userPassword); // Descriptografa a senha utilizando o método Base64
 
         if (userEmail === campos[0].value && userPassword === campos[1].value) {
             window.location.href = "../../paginas/homepage.html";
