@@ -1,5 +1,6 @@
 // Seleção de elementos e regex
 const btnRegister = document.querySelector('.botao-de-cadastrar-usuario');
+const btnLimparFormulario = document.querySelector('.botao-de-limpar-formulario');
 const campos = document.querySelectorAll('.required');
 const spans = document.querySelectorAll('.span-required');
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -21,6 +22,12 @@ function setError(index) {
 function removeError(index) {
     spans[index].style.display = 'none';
 }
+
+// BOTÃO DE LIMPAR FORMULÁRIO
+btnLimparFormulario.addEventListener('click', (event) => {
+    let profilePhotoPreview = document.getElementById('profilePhotoPreview');
+    profilePhotoPreview.style.display = 'none';
+})
 
 // Validações individuais
 function nameValidate() {
@@ -223,6 +230,18 @@ function userPrestadorRoleValidate() {
     campos[16].checked && campos[17].value === '' ? setError(16) : removeError(16);
 }
 
+function profilePhoto() {
+    let profilePhotoPreview = document.getElementById('profilePhotoPreview');
+
+    if (input.files.length === 0) {
+        setError(17);
+        profilePhotoPreview.style.display = 'none';
+    } else {
+        removeError(17);
+        profilePhotoPreview.style.width = '200px';
+    }
+}
+
 // Evento de submit do formulário
 btnRegister.addEventListener('click', (event) => {
     // Execução de validações
@@ -243,6 +262,7 @@ btnRegister.addEventListener('click', (event) => {
     confirmarSenhaValidate();
     userRoleValidate();
     userPrestadorRoleValidate();
+    profilePhoto();
     // Verificação de erros
     const temErro = Array.from(spans).some(span => span.style.display === 'block');
     if (temErro) {
