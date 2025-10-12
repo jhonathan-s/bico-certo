@@ -127,6 +127,7 @@ body::-webkit-scrollbar-thumb {
     display: flex;
     align-items: center;
     margin-right: 15px;
+    color: rgb(23,50,118);
 }
 
 .top-bar .logo:last-child img {
