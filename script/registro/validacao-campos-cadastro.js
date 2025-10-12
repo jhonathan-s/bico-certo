@@ -12,6 +12,8 @@ const estadosBrasil = [
     "Rio Grande do Norte", "Rio Grande do Sul", "Rondônia", "Roraima", "Santa Catarina",
     "São Paulo", "Sergipe", "Tocantins"
 ];
+let tipoUsuario = '';
+let tipoPrestador = '';
 
 // Funções de erro
 function setError(index) {
@@ -199,35 +201,47 @@ function loginValidate() {
         this.value = this.value.replace(/[^A-Za-zÀ-ÿ\s]/g, ""); 
     });
 
-    campos[12].value.length < 6 ? setError(12) : removeError(12);
+    campos[13].value.length < 6 ? setError(12) : removeError(12);
 }
 
 function senhaValidate() {
-
-    // Impede qualquer caractere não alfabético.
-    campos[13].addEventListener("input", function () {
-        this.value = this.value.replace(/[^A-Za-zÀ-ÿ\s]/g, ""); 
-    });
-
-    campos[13].value.length < 8 ? setError(13) : removeError(13);
-}
-
-function confirmarSenhaValidate() {
 
     // Impede qualquer caractere não alfabético.
     campos[14].addEventListener("input", function () {
         this.value = this.value.replace(/[^A-Za-zÀ-ÿ\s]/g, ""); 
     });
 
-    campos[14].value !== campos[13].value ? setError(14) : removeError(14);
+    campos[14].value.length < 8 ? setError(13) : removeError(13);
+}
+
+function confirmarSenhaValidate() {
+
+    // Impede qualquer caractere não alfabético.
+    campos[15].addEventListener("input", function () {
+        this.value = this.value.replace(/[^A-Za-zÀ-ÿ\s]/g, ""); 
+    });
+
+    campos[15].value !== campos[14].value ? setError(14) : removeError(14);
 }
 
 function userRoleValidate() {
-    !campos[15].checked && !campos[16].checked ? setError(15) : removeError(15);
+
+    if (!campos[16].checked && !campos[17].checked) {
+        setError(15);
+    } else {
+        removeError(15);
+    }
+
 }
 
 function userPrestadorRoleValidate() {
-    campos[16].checked && campos[17].value === '' ? setError(16) : removeError(16);
+    
+    if (campos[17].checked && campos[18].value === '') {
+        setError(16);
+    } else {
+        removeError(16);
+    }
+
 }
 
 function profilePhoto() {
@@ -272,10 +286,15 @@ btnRegister.addEventListener('click', (event) => {
     }
 
     // Criptografa a senha
-    let senhaCriptografada = btoa(campos[13].value);
+    let senhaCriptografada = btoa(campos[14].value);
 
     // Determina o papel do usuário
-    const userRole = campos[15].checked ? 'Contratante' : 'Prestador';
+    if (campos[16].checked) {
+        tipoUsuario = 'Contratante';
+    } else {
+        tipoUsuario = 'Prestador';
+        tipoPrestador = campos[18].value;
+    }
 
     // Coleta os dados do formulário
     const novoUsuario = {
@@ -291,10 +310,12 @@ btnRegister.addEventListener('click', (event) => {
         cidade: campos[9].value,
         numero: campos[10].value,
         bairro: campos[11].value,
-        login: campos[12].value,
+        pontoDeReferencia: campos[12].value,
+        login: campos[13].value,
         senha: senhaCriptografada,
-        perfil: userRole,
-        fotoPerfil: campos[17].value // Assumindo que o input de imagem é o campo 17
+        tipoUsuario: tipoUsuario,
+        tipoPrestador: tipoPrestador,
+        online: false
     };
 
     // Verifica quantos usuários já existem no localStorage
