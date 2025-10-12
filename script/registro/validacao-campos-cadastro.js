@@ -254,10 +254,10 @@ btnRegister.addEventListener('click', (event) => {
         const userPassword = JSON.stringify(senhaCriptografada);
 
         if (campos[15].checked) {
-            const userRole = campos[15].checked.value = 'contratante'; 
+            const userRole = campos[15].checked.value = 'Contratante'; 
             localStorage.setItem("userRole", userRole);
         } else {
-            const userRole = campos[16].checked.value = 'prestador';
+            const userRole = campos[16].checked.value = 'Prestador';
             localStorage.setItem("userRole", userRole);
         }
 
