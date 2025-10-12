@@ -424,6 +424,26 @@ optgroup > option {
     text-align: left;
 }
 
+/* FOTO DE PERFIL */
+.coluna6 {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-profile-photo {
+    width: 87px;
+}
+
+.profile-photo-preview {
+    display: none;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
 /* CONTAINER DE BOTÕES */
 .buttons-container {
     margin-top: 20px;

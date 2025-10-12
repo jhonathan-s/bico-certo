@@ -1,5 +1,6 @@
 // Seleção de elementos e regex
 const btnRegister = document.querySelector('.botao-de-cadastrar-usuario');
+const btnLimparFormulario = document.querySelector('.botao-de-limpar-formulario');
 const campos = document.querySelectorAll('.required');
 const spans = document.querySelectorAll('.span-required');
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -11,6 +12,8 @@ const estadosBrasil = [
     "Rio Grande do Norte", "Rio Grande do Sul", "Rondônia", "Roraima", "Santa Catarina",
     "São Paulo", "Sergipe", "Tocantins"
 ];
+let tipoUsuario = '';
+let tipoPrestador = '';
 
 // Funções de erro
 function setError(index) {
@@ -21,6 +24,12 @@ function setError(index) {
 function removeError(index) {
     spans[index].style.display = 'none';
 }
+
+// BOTÃO DE LIMPAR FORMULÁRIO
+btnLimparFormulario.addEventListener('click', (event) => {
+    let profilePhotoPreview = document.getElementById('profilePhotoPreview');
+    profilePhotoPreview.style.display = 'none';
+})
 
 // Validações individuais
 function nameValidate() {
@@ -192,35 +201,59 @@ function loginValidate() {
         this.value = this.value.replace(/[^A-Za-zÀ-ÿ\s]/g, ""); 
     });
 
-    campos[12].value.length < 6 ? setError(12) : removeError(12);
+    campos[13].value.length < 6 ? setError(12) : removeError(12);
 }
 
 function senhaValidate() {
-
-    // Impede qualquer caractere não alfabético.
-    campos[13].addEventListener("input", function () {
-        this.value = this.value.replace(/[^A-Za-zÀ-ÿ\s]/g, ""); 
-    });
-
-    campos[13].value.length < 8 ? setError(13) : removeError(13);
-}
-
-function confirmarSenhaValidate() {
 
     // Impede qualquer caractere não alfabético.
     campos[14].addEventListener("input", function () {
         this.value = this.value.replace(/[^A-Za-zÀ-ÿ\s]/g, ""); 
     });
 
-    campos[14].value !== campos[13].value ? setError(14) : removeError(14);
+    campos[14].value.length < 8 ? setError(13) : removeError(13);
+}
+
+function confirmarSenhaValidate() {
+
+    // Impede qualquer caractere não alfabético.
+    campos[15].addEventListener("input", function () {
+        this.value = this.value.replace(/[^A-Za-zÀ-ÿ\s]/g, ""); 
+    });
+
+    campos[15].value !== campos[14].value ? setError(14) : removeError(14);
 }
 
 function userRoleValidate() {
-    !campos[15].checked && !campos[16].checked ? setError(15) : removeError(15);
+
+    if (!campos[16].checked && !campos[17].checked) {
+        setError(15);
+    } else {
+        removeError(15);
+    }
+
 }
 
 function userPrestadorRoleValidate() {
-    campos[16].checked && campos[17].value === '' ? setError(16) : removeError(16);
+    
+    if (campos[17].checked && campos[18].value === '') {
+        setError(16);
+    } else {
+        removeError(16);
+    }
+
+}
+
+function profilePhoto() {
+    let profilePhotoPreview = document.getElementById('profilePhotoPreview');
+
+    if (input.files.length === 0) {
+        setError(17);
+        profilePhotoPreview.style.display = 'none';
+    } else {
+        removeError(17);
+        profilePhotoPreview.style.width = '200px';
+    }
 }
 
 // Evento de submit do formulário
@@ -243,25 +276,54 @@ btnRegister.addEventListener('click', (event) => {
     confirmarSenhaValidate();
     userRoleValidate();
     userPrestadorRoleValidate();
-    // Verificação de erros
+    profilePhoto();
+
     const temErro = Array.from(spans).some(span => span.style.display === 'block');
+
     if (temErro) {
         event.preventDefault();
-    } else {
-        let senhaCriptografada = btoa(campos[13].value); // Criptografa a senha utilizando o método Base64
-
-        const userEmail = JSON.stringify(campos[1].value);
-        const userPassword = JSON.stringify(senhaCriptografada);
-
-        if (campos[15].checked) {
-            const userRole = campos[15].checked.value = 'contratante'; 
-            localStorage.setItem("userRole", userRole);
-        } else {
-            const userRole = campos[16].checked.value = 'prestador';
-            localStorage.setItem("userRole", userRole);
-        }
-
-        localStorage.setItem("userEmail", userEmail);
-        localStorage.setItem("userPassword", userPassword);
+        return;
     }
+
+    // Criptografa a senha
+    let senhaCriptografada = btoa(campos[14].value);
+
+    // Determina o papel do usuário
+    if (campos[16].checked) {
+        tipoUsuario = 'Contratante';
+    } else {
+        tipoUsuario = 'Prestador';
+        tipoPrestador = campos[18].value;
+    }
+
+    // Coleta os dados do formulário
+    const novoUsuario = {
+        nome: campos[0].value,
+        email: campos[1].value,
+        dataNascimento: campos[2].value,
+        sexo: campos[3].value,
+        cpf: campos[4].value,
+        celular: campos[5].value,
+        cep: campos[6].value,
+        rua: campos[7].value,
+        estado: campos[8].value,
+        cidade: campos[9].value,
+        numero: campos[10].value,
+        bairro: campos[11].value,
+        pontoDeReferencia: campos[12].value,
+        login: campos[13].value,
+        senha: senhaCriptografada,
+        tipoUsuario: tipoUsuario,
+        tipoPrestador: tipoPrestador,
+        online: false
+    };
+
+    // Verifica quantos usuários já existem no localStorage
+    let contador = 1;
+    while (localStorage.getItem(`usuario${contador}`) !== null) {
+        contador++;
+    }
+
+    // Salva o novo usuário como usuarioN
+    localStorage.setItem(`usuario${contador}`, JSON.stringify(novoUsuario));
 });

@@ -77,7 +77,7 @@
                         <span class="span-required">Digite um bairro.</span>
                     </div>
                     <div class="campo">
-                        <input type="text" class="ponto-de-referencia" placeholder="Ponto de Referência" maxlength="30" id="ponto-de-referencia">
+                        <input type="text" class="ponto-de-referencia required" placeholder="Ponto de Referência" maxlength="30" id="ponto-de-referencia">
                     </div>
                 </div>
                 <h1>Informações da Conta</h1>
@@ -88,7 +88,7 @@
                     </div>
                     <div class="campo">
                         <input type="password" class="senha required" placeholder="Senha" maxlength="8" id="senha" oninput="senhaValidate(this.value)">
-                        <span class="span-required">Senha deve ter exatamente 8 caracteres.</span>
+                        <span class="span-required">Senha deve ter exatamente 8 caracteres alfabéticos.</span>
                     </div>
                     <div class="campo">
                         <input type="password" class="confirmar-senha required" placeholder="Confirmar Senha" maxlength="8" id="confirmar-senha" oninput="confirmarSenhaValidate()">
@@ -116,84 +116,100 @@
                 <div class="coluna5" id="coluna5">
                     <div class="services">
                         <h3>Que tipo de serviço você deseja oferecer na plataforma?</h3>
-                        <select name="" id="prestador-opcoes" class="required">
+                        <select name="prestador-opcoes" id="prestador-opcoes" class="required">
                             <option value="" disabled selected>Por favor, selecione uma espécie de serviço...</option>
+
                             <optgroup label="Beleza e Bem-estar">
-                                <option value="teste">Manicure e pedicure</option>
-                                <option value="teste">Cabeleireiro(a) ou barbeiro(a)</option>
-                                <option value="teste">Design de sobrancelhas</option>
-                                <option value="teste">Maquiador(a)</option>
-                                <option value="teste">Massoterapeuta(a)</option>
-                                <option value="teste">Esteticista (limpeza de pele, depilação, etc.)</option>
-                                <option value="teste">Personal trainer</option>
-                                <option value="teste">Instrutor(a) de yoga ou pilates</option>
+                                <option value="manicure-pedicure">Manicure e pedicure</option>
+                                <option value="cabeleireiro-barbeiro">Cabeleireiro(a) ou barbeiro(a)</option>
+                                <option value="design-sobrancelhas">Design de sobrancelhas</option>
+                                <option value="maquiador">Maquiador(a)</option>
+                                <option value="massoterapeuta">Massoterapeuta(a)</option>
+                                <option value="esteticista">Esteticista (limpeza de pele, depilação, etc.)</option>
+                                <option value="personal-trainer">Personal trainer</option>
+                                <option value="instrutor-yoga-pilates">Instrutor(a) de yoga ou pilates</option>
                             </optgroup>
+
                             <optgroup label="Cuidados Domésticos">
-                                <option value="teste">Jardinagem</option>
-                                <option value="teste">Paisagismo</option>
-                                <option value="teste">Limpeza residencial ou comercial</option>
-                                <option value="teste">Organização de ambientes</option>
-                                <option value="teste">Serviços de mudança (empacotamento e transporte leve)</option>
-                                <option value="teste">Reparos domésticos (marido/mulher de aluguel)</option>
+                                <option value="jardinagem">Jardinagem</option>
+                                <option value="paisagismo">Paisagismo</option>
+                                <option value="limpeza-residencial-comercial">Limpeza residencial ou comercial</option>
+                                <option value="organizacao-de-ambientes">Organização de ambientes</option>
+                                <option value="servicos-de-mudanca">Serviços de mudança (empacotamento e transporte leve)</option>
+                                <option value="reparos-domesticos">Reparos domésticos (marido/mulher de aluguel)</option>
                             </optgroup>
+
                             <optgroup label="Culinária e Gastronomia">
-                                <option value="teste">Personal chef</option>
-                                <option value="teste">Confeiteiro(a)</option>
-                                <option value="teste">Produção de marmitas e comidas congeladas</option>
-                                <option value="teste">Food truck ou barraquinha de comida em eventos</option>
-                                <option value="teste">Aulas de culinária</option>
+                                <option value="personal-chef">Personal chef</option>
+                                <option value="confeiteiro">Confeiteiro(a)</option>
+                                <option value="marmitas-e-congelados">Produção de marmitas e comidas congeladas</option>
+                                <option value="food-truck-eventos">Food truck ou barraquinha de comida em eventos</option>
+                                <option value="aulas-de-culinaria">Aulas de culinária</option>
                             </optgroup>
+
                             <optgroup label="Educação e Treinamento">
-                                <option value="teste">Aulas particulares (reforço escolar, línguas, música, etc.)</option>
-                                <option value="teste">Consultoria profissional (marketing, finanças, tecnologia, etc.)</option>
-                                <option value="teste">Coach de carreira ou vida</option>
-                                <option value="teste">Workshops ou treinamentos em áreas específicas</option>
+                                <option value="aulas-particulares">Aulas particulares (reforço escolar, línguas, música, etc.)</option>
+                                <option value="consultoria-profissional">Consultoria profissional (marketing, finanças, tecnologia, etc.)</option>
+                                <option value="coach-carreira-vida">Coach de carreira ou vida</option>
+                                <option value="workshops-treinamentos">Workshops ou treinamentos em áreas específicas</option>
                             </optgroup>
+
                             <optgroup label="Cuidados com Animais">
-                                <option value="teste">Passeador(a) de cães</option>
-                                <option value="teste">Pet sitter (babá de animais)</option>
-                                <option value="teste">Banho e tosa de animais</option>
-                                <option value="teste">Adestramento de cães</option>
+                                <option value="passeador-de-caes">Passeador(a) de cães</option>
+                                <option value="pet-sitter">Pet sitter (babá de animais)</option>
+                                <option value="banho-e-tosa">Banho e tosa de animais</option>
+                                <option value="adestramento-de-caes">Adestramento de cães</option>
                             </optgroup>
+
                             <optgroup label="Arte e Criação">
-                                <option value="teste">Fotógrafo(a) (casamentos, eventos, retratos)</option>
-                                <option value="teste">Artista plástico ou artesão (pintura, escultura, bordado, etc.)</option>
-                                <option value="teste">Design gráfico</option>
-                                <option value="teste">Escritor(a) freelancer (artigos, blogs, roteiros, etc.)</option>
-                                <option value="teste">Edição de fotos ou vídeos</option>
-                                <option value="teste">Músico(a) (shows, eventos, gravações)</option>
+                                <option value="fotografia">Fotógrafo(a) (casamentos, eventos, retratos)</option>
+                                <option value="artes-plasticas">Artista plástico ou artesão (pintura, escultura, bordado, etc.)</option>
+                                <option value="design-grafico">Design gráfico</option>
+                                <option value="escritor-freelancer">Escritor(a) freelancer (artigos, blogs, roteiros, etc.)</option>
+                                <option value="edicao-fotos-videos">Edição de fotos ou vídeos</option>
+                                <option value="musico">Músico(a) (shows, eventos, gravações)</option>
                             </optgroup>
+
                             <optgroup label="Transporte e Logística">
-                                <option value="teste">Motorista de aplicativo ou transporte privado</option>
-                                <option value="teste">Entregador(a) autônomo</option>
-                                <option value="teste">Motoboy</option>
-                                <option value="teste">Transporte escolar</option>
+                                <option value="motorista-aplicativo">Motorista de aplicativo ou transporte privado</option>
+                                <option value="entregador-autonomo">Entregador(a) autônomo</option>
+                                <option value="motoboy">Motoboy</option>
+                                <option value="transporte-escolar">Transporte escolar</option>
                             </optgroup>
+
                             <optgroup label="Tecnologia e Serviços Digitais">
-                                <option value="teste">Desenvolvimento de sites</option>
-                                <option value="teste">Suporte técnico de informática</option>
-                                <option value="teste">Consultoria em redes sociais e marketing digital</option>
-                                <option value="teste">Produção de conteúdo (YouTube, podcasts, blogs)</option>
-                                <option value="teste">Edição de vídeos e podcasts</option>
+                                <option value="desenvolvimento-de-sites">Desenvolvimento de sites</option>
+                                <option value="suporte-informatica">Suporte técnico de informática</option>
+                                <option value="consultoria-marketing-digital">Consultoria em redes sociais e marketing digital</option>
+                                <option value="producao-de-conteudo">Produção de conteúdo (YouTube, podcasts, blogs)</option>
+                                <option value="edicao-videos-podcasts">Edição de vídeos e podcasts</option>
                             </optgroup>
+
                             <optgroup label="Eventos e Festas">
-                                <option value="teste">Decoração de festas</option>
-                                <option value="teste">Organização de eventos</option>
-                                <option value="teste">Buffet para festas</option>
-                                <option value="teste">Locação de materiais para eventos</option>
-                                <option value="teste">Recreação infantil</option>
+                                <option value="decoracao-de-festas">Decoração de festas</option>
+                                <option value="organizacao-de-eventos">Organização de eventos</option>
+                                <option value="buffet">Buffet para festas</option>
+                                <option value="locacao-de-materiais">Locação de materiais para eventos</option>
+                                <option value="recreacao-infantil">Recreação infantil</option>
                             </optgroup>
+
                             <optgroup label="Outros Serviços">
-                                <option value="teste">Assistência pessoal ou virtual</option>
-                                <option value="teste">Costura e ajustes de roupas</option>
-                                <option value="teste">Serviços de tradução ou intérprete</option>
-                                <option value="teste">Consultoria financeira ou contábil</option>
-                                <option value="teste">Reparos em eletrônicos</option>
-                                <option value="teste">Outros</option>
+                                <option value="assistencia-pessoal-virtual">Assistência pessoal ou virtual</option>
+                                <option value="costura-ajustes">Costura e ajustes de roupas</option>
+                                <option value="traducao-interpretacao">Serviços de tradução ou intérprete</option>
+                                <option value="consultoria-financeira">Consultoria financeira ou contábil</option>
+                                <option value="reparos-eletronicos">Reparos em eletrônicos</option>
+                                <option value="outros">Outros</option>
                             </optgroup>
                         </select>
                         <span class="span-required">Selecione que tipo de serviço você oferecerá na plataforma.</span>
                     </div>
+                </div>
+                <h1>Foto de Perfil</h1>
+                <div class="coluna6">
+                    <input type="file" name="profile-photo" id="profilePhotoInput" class="btn-profile-photo" accept="image/*">
+                    <img src="" alt="" id="profilePhotoPreview" class="profile-photo-preview">
+                    <span class="span-required">Selecione uma foto de perfil.</span>
                 </div>
                 <div class="buttons-container">
                     <button type="submit" class="botao-de-cadastrar-usuario">Cadastrar Usuário</button>
@@ -215,6 +231,7 @@
             </div>
         </div>
     </div>
+    <script src="../script/registro/profile-photo.js"></script>
     <script src="../script/registro/formatacao-cep.js"></script>
     <script src="../script/registro/formatacao-cpf.js"></script>
     <script src="../script/registro/formatacao-celular.js"></script>
