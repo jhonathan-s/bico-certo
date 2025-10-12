@@ -126,7 +126,7 @@ body::-webkit-scrollbar-thumb {
     display: flex;
     align-items: center;
     cursor: pointer;
-    color: #ff0000; /* Ajustar cor igual ao código 2 */
+    color: rgb(23, 50, 118); /* Ajustar cor igual ao código 2 */
 }
 
 .top-bar .logo img {

@@ -19,34 +19,33 @@
             </a>
         </div>
         <div class="menu">
-            <!-- Criamos sobre nos no nav bar inicio-->
-            <div class="sobrenos">
-                <a href="../paginas/sobrenos.html">Sobre</a>
+            <div class="logo">
+                <span><a href="./servicos.html">
+                <img src="../imagens/perfil/servicos.svg"></a></span>
             </div>
-            <div class="sobrenos">
-                <a href="../paginas/contato.html">Contato</a>
+            <div class="logo">
+                <span><a href="./mensagem.html">
+                <img src="../imagens/perfil/envelope.svg"></a></span>
             </div>
-            <div class="sobrenos">
-                <a href="../paginas/cadastro.html">Cadastro</a>
+            <div class="logo">
+                <span><a href="./notifications.html">
+                <img src="../imagens/perfil/notificação.svg"></a></span>
             </div>
-            <div class="sobrenos">
-                <a href="../paginas/login.html">Login</a>
+            <div class="user-name logo">
+                <p id="username"></p>
             </div>
-            
-            <!-- Criamos sobre nos no nav bar FIM-->
-            <!-- Mudamos o icone de perfil -->
-            <div class="menu2" onclick="toggleProfileMenu()">
-                <img src="../imagens/menulogo.png">
+            <!-- Ícone de perfil com menu de opções -->
+            <div class="logo" onclick="toggleProfileMenu()">
+                <img src="../imagens/servicos/perfil_6.jpg">
             </div>
         </div>
     </header>
     <!-- Profile Menu -->
     <div class="profile-menu" id="profileMenu">
         <ul>
-            <li><a href="./login.html">Entrar</a></li>
-            <li><a href="./cadastro.html">Cadastrar</a></li>
-            <li><a href="./sobrenos.html">Sobre</a></li>
-            <li><a href="./contato.html">Contato</a></li>
+            <li><a href="./perfil.html">Meu Perfil</a></li>
+            <li><a href="./profile-edit.html">Editar Perfil</a></li>
+            <li><a href="./login.html" id="logout">Sair</a></li>
         </ul>
     </div>
     <!-- Advertisement Banner -->
@@ -199,11 +198,11 @@
             <ul>
                 <li class="footer-list-option"><a href="./contato.html" target="_blank">Contato</a></li>
                 <li class="footer-list-option"><a href="./sobrenos.html" target="_blank">Sobre</a></li>
-                <li class="footer-list-option"><a href="./cadastro.html" target="_blank">Cadastro</a></li>
-                <li class="footer-list-option"><a href="./login.html" target="_blank">Login</a></li>
             </ul>
         </div>
     </footer>
     <script src="../script/perfil/perfil.js"></script>
+    <script src="../script/user-login.js"></script>
+    <script src="../script/user-logout.js"></script>
 </body>
 </html>

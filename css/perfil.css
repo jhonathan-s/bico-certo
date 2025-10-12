@@ -47,6 +47,7 @@ body {
   display: flex;
   align-items: center;
   margin-right: 15px;
+  color: rgb(23,50,118);
 }
 
 .menu span:hover {
@@ -74,7 +75,7 @@ body {
     display: flex;
     align-items: center;
     cursor: pointer;
-    color: #ff0000;
+    color: rgb(23,50,118);
 }
 
 .top-bar .logo img {
