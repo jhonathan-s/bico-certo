@@ -263,25 +263,46 @@ btnRegister.addEventListener('click', (event) => {
     userRoleValidate();
     userPrestadorRoleValidate();
     profilePhoto();
-    // Verificação de erros
+
     const temErro = Array.from(spans).some(span => span.style.display === 'block');
+
     if (temErro) {
         event.preventDefault();
-    } else {
-        let senhaCriptografada = btoa(campos[13].value); // Criptografa a senha utilizando o método Base64
-
-        const userEmail = JSON.stringify(campos[1].value);
-        const userPassword = JSON.stringify(senhaCriptografada);
-
-        if (campos[15].checked) {
-            const userRole = campos[15].checked.value = 'Contratante'; 
-            localStorage.setItem("userRole", userRole);
-        } else {
-            const userRole = campos[16].checked.value = 'Prestador';
-            localStorage.setItem("userRole", userRole);
-        }
-
-        localStorage.setItem("userEmail", userEmail);
-        localStorage.setItem("userPassword", userPassword);
+        return;
     }
+
+    // Criptografa a senha
+    let senhaCriptografada = btoa(campos[13].value);
+
+    // Determina o papel do usuário
+    const userRole = campos[15].checked ? 'Contratante' : 'Prestador';
+
+    // Coleta os dados do formulário
+    const novoUsuario = {
+        nome: campos[0].value,
+        email: campos[1].value,
+        dataNascimento: campos[2].value,
+        sexo: campos[3].value,
+        cpf: campos[4].value,
+        celular: campos[5].value,
+        cep: campos[6].value,
+        rua: campos[7].value,
+        estado: campos[8].value,
+        cidade: campos[9].value,
+        numero: campos[10].value,
+        bairro: campos[11].value,
+        login: campos[12].value,
+        senha: senhaCriptografada,
+        perfil: userRole,
+        fotoPerfil: campos[17].value // Assumindo que o input de imagem é o campo 17
+    };
+
+    // Verifica quantos usuários já existem no localStorage
+    let contador = 1;
+    while (localStorage.getItem(`usuario${contador}`) !== null) {
+        contador++;
+    }
+
+    // Salva o novo usuário como usuarioN
+    localStorage.setItem(`usuario${contador}`, JSON.stringify(novoUsuario));
 });
