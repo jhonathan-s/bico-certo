@@ -42,24 +42,30 @@ function userLoginValidate() {
 
     let usuarioEncontrado = false;
 
-    // Percorre todas as chaves do localStorage
+    // Primeiro: deslogar todos os usuários (setar online = false)
     for (let i = 0; i < localStorage.length; i++) {
         const chave = localStorage.key(i);
 
-        // Verifica se a chave corresponde ao padrão 'usuario'
         if (chave.startsWith('usuario')) {
             const usuario = JSON.parse(localStorage.getItem(chave));
+            usuario.online = false;
+            localStorage.setItem(chave, JSON.stringify(usuario));
+        }
+    }
 
-            // Descriptografa a senha usando Base64
+    // Segundo: tentar logar com o usuário informado
+    for (let i = 0; i < localStorage.length; i++) {
+        const chave = localStorage.key(i);
+
+        if (chave.startsWith('usuario')) {
+            const usuario = JSON.parse(localStorage.getItem(chave));
             const senhaDescriptografada = atob(usuario.senha);
 
-            // Verifica se email e senha coincidem
             if (usuario.email === inputEmail && senhaDescriptografada === inputSenha) {
-                usuario.online = true; // Marca o usuário como online
-                localStorage.setItem(chave, JSON.stringify(usuario)); // Atualiza no localStorage
+                usuario.online = true;
+                localStorage.setItem(chave, JSON.stringify(usuario));
                 usuarioEncontrado = true;
 
-                // Redireciona para a homepage
                 window.location.href = "../../paginas/homepage.html";
                 break;
             }
