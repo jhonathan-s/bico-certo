@@ -12,13 +12,23 @@
 </head>
 <body>
     <div class="container">
+        <div class="modal" onclick="closeModal(event)">
+            <div class="modal-box">
+                <span class="modal-title">
+                    Registrado com sucesso!
+                </span>
+                <button class="modal-button" onclick="goToLoginPage()">
+                    Fazer login
+                </button>
+            </div>
+        </div>
         <div class="container-esquerdo">
             <img src="../imagens/imagem-cadastro.jpg" class="imagem">
         </div>
         <div class="container-direito" id="container-direito">
             <img src="../imagens/logomarca.png" class="logomarca" id="logomarca">
             <img src="../imagens/logomarca-dark-mode.png" class="logomarca-dark-mode" id="logomarca-dark-mode">
-            <form action="../server-side/registration/registration-validation.php" method="post" id="form">
+            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" id="form">
                 <h1>Informações Pessoais</h1>
                 <div class="coluna1">
                     <div class="campo">
@@ -224,10 +234,10 @@
             <div class="acessibility-panel">
                 <img onclick="LightMode()" id="btnLightMode" src="../imagens/white-and-dark-mode/sun-solid.svg" class="botao-white-mode">
                 <img onclick="DarkMode()" id="btnDarkMode" src="../imagens/white-and-dark-mode/moon-solid.svg" class="botao-dark-mode">
-                <img id="aumentarZoom" onclick="aumentarZoom()" src="../imagens/acessibilidade/circle-plus-solid.svg" class="acessibilidade-mais">
-                <img id="abaixarZoom" onclick="abaixarZoom()" src="../imagens/acessibilidade/circle-minus-solid.svg" class="acessibilidade-menos">
-                <img id="aumentarZoomDM" onclick="aumentarZoom()" src="../imagens/white-and-dark-mode/circle-plus-solid.svg" class="acessibilidade-mais lm-dm">
-                <img id="abaixarZoomDM" onclick="abaixarZoom()" src="../imagens/white-and-dark-mode/circle-minus-solid.svg" class="acessibilidade-menos lm-dm">
+                <img id="aumentarZoom" src="../imagens/acessibilidade/circle-plus-solid.svg" class="acessibilidade-mais">
+                <img id="abaixarZoom" src="../imagens/acessibilidade/circle-minus-solid.svg" class="acessibilidade-menos">
+                <img id="aumentarZoomDM" src="../imagens/white-and-dark-mode/circle-plus-solid.svg" class="acessibilidade-mais lm-dm">
+                <img id="abaixarZoomDM" src="../imagens/white-and-dark-mode/circle-minus-solid.svg" class="acessibilidade-menos lm-dm">
             </div>
         </div>
     </div>

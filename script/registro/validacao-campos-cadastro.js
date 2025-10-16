@@ -15,6 +15,28 @@ const estadosBrasil = [
 let tipoUsuario = '';
 let tipoPrestador = '';
 
+// BOTÃO DE LIMPAR FORMULÁRIO
+btnLimparFormulario.addEventListener('click', (event) => {
+    let profilePhotoPreview = document.getElementById('profilePhotoPreview');
+    profilePhotoPreview.style.display = 'none';
+})
+
+// MODAL
+const form = document.getElementById('form');
+const modal = document.getElementsByClassName('modal');
+const modalButton = document.getElementsByClassName('modal-button');
+
+function closeModal(event) {
+    // Verifica se o clique foi fora da .modal-box
+    if (event.target === event.currentTarget) {
+        document.querySelector('.modal').style.display = 'none'; // Fecha o modal
+    }
+}
+
+function goToLoginPage() {
+    window.location.href = "login.php";
+}
+
 // Funções de erro
 function setError(index) {
     spans[index].style.display = 'block';
@@ -24,12 +46,6 @@ function setError(index) {
 function removeError(index) {
     spans[index].style.display = 'none';
 }
-
-// BOTÃO DE LIMPAR FORMULÁRIO
-btnLimparFormulario.addEventListener('click', (event) => {
-    let profilePhotoPreview = document.getElementById('profilePhotoPreview');
-    profilePhotoPreview.style.display = 'none';
-})
 
 // Validações individuais
 function nameValidate() {
@@ -326,4 +342,15 @@ btnRegister.addEventListener('click', (event) => {
 
     // Salva o novo usuário como usuarioN
     localStorage.setItem(`usuario${contador}`, JSON.stringify(novoUsuario));
+});
+
+// Impede a reinicilização da página após o envio do formulário
+document.addEventListener('DOMContentLoaded', function() {
+    form.addEventListener('submit', function(event) {
+        // Impede o comportamento padrão de recarregar a página
+        event.preventDefault();
+
+        // Exibe o modal
+        modal[0].style.display = 'flex';
+    });
 });
