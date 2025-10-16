@@ -160,6 +160,53 @@ option {
     display: flex;
 }
 
+/* MODAL */
+.modal {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(140, 140, 140, 0.3);
+    backdrop-filter: blur(2px);
+    z-index: 2;
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-box {
+    width: 200px;
+    height: fit-content;
+    border-radius: 20px;
+    padding: 20px;
+    background-color: var(--secondary-color);
+    display: flex;
+    z-index: 3;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.modal-title {
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.modal-button {
+    height: 35px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: 0;
+    border-radius: 5px;
+}
+
+.modal-button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.modal-button:active {
+    opacity: 0.6;
+}
+
 /* Container Esquerdo */
 .container-esquerdo {
     flex: 1;
@@ -507,6 +554,7 @@ a > span {
 /* "Botões" de Acessibilidade */
 .acessibility-buttons {
     margin-right: 2px;
+    z-index: 2;
 }
 
 .acessibility-buttons > div {
